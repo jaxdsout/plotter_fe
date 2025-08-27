@@ -1,0 +1,29 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-left-radius: 80%;
+    border-bottom-right-radius: 80%;
+    background-color: #262626;
+    padding: 10px;
+    z-index: 5;
+}
+
+
+.navLogo {
+    color: #5F85DB;
+    font-size: 50px;
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
+    font-family: "Bungee", sans-serif;
+}
+
+.navLogo:hover {
+    color: #4d6ebb
+}
+
+@media screen and (min-width: 550px) {
+    .navLogo {
+        font-size: 70px
+    }
+}

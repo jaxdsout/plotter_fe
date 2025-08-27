@@ -1,11 +1,11 @@
-import { useNavigate, useParams } from "react-router-dom"
-import { connect } from "react-redux"
+import { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { Button, Loader, Message } from "semantic-ui-react";
 import { activate } from "../store/actions/auth";
 import { set_activate_success } from "../store/actions/ui";
-import { Button, Message, Loader } from "semantic-ui-react";
-import { useEffect, useState } from "react";
 
-function Activate ({ activate, message, activateSuccess, set_activate_success }) {
+function Activate({ activate, message, activateSuccess, set_activate_success }) {
     const navigate = useNavigate()
     const { uid, token } = useParams();
     const [isLoading, setLoading] = useState(false);
@@ -27,13 +27,13 @@ function Activate ({ activate, message, activateSuccess, set_activate_success })
         <div className="flex flex-col items-center justify-evenly">
             <div className="w-11/12 max-w-[500px] p-5 mt-5 mb-10 flex flex-col bg-[#26282B] rounded-lg shadow-md shadow-inner">
                 <div className="mb-3 flex flex-col items-center">
-                    <img src="https://plotter-medi-0814.s3.us-east-2.amazonaws.com/1007.jpg" alt="activate-header"/>
+                    <img src="https://plotter-medi-0814.s3.us-east-2.amazonaws.com/1007.jpg" alt="activate-header" />
                     <p className="font-mont text-white text-2xl md:text-4xl mt-4 uppercase"> activate your account </p>
                 </div>
                 <div className="flex flex-col items-center justify-evenly">
                     <Button onClick={activate_account} type='button' className="!bg-[#90B8F8] hover:!bg-[#5F85DB]">
                         {isLoading ? (
-                            <Loader active inline inverted size='mini'/>
+                            <Loader active inline inverted size='mini' />
                         ) : (
                             <span>ACTIVATE</span>
                         )}
@@ -46,7 +46,7 @@ function Activate ({ activate, message, activateSuccess, set_activate_success })
                 )}
             </div>
         </div>
-          
+
     )
 }
 
@@ -55,4 +55,4 @@ const mapStateToProps = state => ({
     activateSuccess: state.ui.activateSuccess
 });
 
-export default connect(mapStateToProps, { activate, set_activate_success })( Activate );
+export default connect(mapStateToProps, { activate, set_activate_success })(Activate);
