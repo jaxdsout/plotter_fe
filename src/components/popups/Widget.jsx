@@ -4,6 +4,7 @@ import { Card, CardContent } from 'semantic-ui-react';
 import { widget_close, widget_open } from '../../store/actions/ui';
 import Calculator from '../calculator/Calculator';
 import Profile from './Profile';
+import './popups.css';
 
 function Widget({ widget, type }) {
 
@@ -25,14 +26,14 @@ function Widget({ widget, type }) {
     return (
         <motion.div
             key={widget}
-            className='absolute'
+            className='widget'
             onDoubleClick={() => handleWidget(type)}
-            initial={{ top: 0 }}
-            animate={{ top: widget === 'calculator' ? 120 : 120 }}
+            initial={{ top: -40, right: 80, opacity: 0 }}
+            animate={{ top: widget === 'calculator' ? 0 : 120, right: 80, opacity: 100 }}
             exit={{ top: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <Card className='drop-shadow-xl shadow-inner'>
+            <Card>
                 <CardContent>
                     {widget === 'calculator' && <Calculator />}
                     {widget === 'profile' && <Profile />}

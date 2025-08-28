@@ -1,14 +1,13 @@
-import { Link, useNavigate } from "react-router-dom";
-import { Button, Loader } from "semantic-ui-react";
-import { useEffect, useState, useRef } from "react";
-import { reset_client_view } from "../store/actions/ui";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { connect } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "semantic-ui-react";
 import LandingLoop from "../images/videos/0224.mp4";
-import { motion, useInView, useAnimation } from "framer-motion";
+import { reset_client_view } from "../store/actions/ui";
 
 function Landing({ access, refresh }) {
     const navigate = useNavigate();
-    const [imageLoad, setImageLoad] = useState(false);
     const [videoHover, setVideoHover] = useState(false);
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
@@ -27,29 +26,9 @@ function Landing({ access, refresh }) {
         }
     }, [isInView])
 
-    // useEffect(() => {
-    //     const preloadImage = (url) => {
-    //         const img = new Image();
-    //         img.src = url;
-    //         if (url === 'https://plotter-medi-0814.s3.us-east-2.amazonaws.com/1008.png') {
-    //             img.onload = () => setImageLoad(true);
-    //         } 
-    //     };
-
-    //     const imageUrls = [
-    //         "https://plotter-medi-0814.s3.us-east-2.amazonaws.com/1006.png",
-    //         "https://plotter-medi-0814.s3.us-east-2.amazonaws.com/1010.png",
-    //         "https://plotter-medi-0814.s3.us-east-2.amazonaws.com/1009.png",
-    //         "https://plotter-medi-0814.s3.us-east-2.amazonaws.com/1008.png",
-    //     ];
-
-    //     imageUrls.forEach(preloadImage);
-    // }, []);
-
     return (
         <div className="flex flex-col items-center justify-evenly animator bg-fixed">
             <div className="flex flex-col bg-[#262626] flex flex-col items-center justify-center">
-                <img className="drop-shadow-md h-[200px] sm:h-[400px] mt-2" src="https://plotter-medi-0814.s3.us-east-2.amazonaws.com/1006.png" alt='main-header' />
                 <motion.div
                     className="bg-[#010111] w-full"
                     initial={{ translateY: 500 }}
@@ -72,9 +51,7 @@ function Landing({ access, refresh }) {
                         <p className="font-mont drop-shadow text-white uppercase text-2xl text-center mb-4 mt-2 w-3/4 md:w-1/2">streamline the entire apartment locating process for real estate agents </p>
                     </div>
                     <div className="mt-6 flex flex-col items-center justify-center">
-                        <div className="h-[300px] -mb-24 relative">
-                            <img src="https://plotter-medi-0814.s3.us-east-2.amazonaws.com/1009.png" className="drop-shadow h-3/4 sm:h-11/12" alt="sub-header-1" />
-                        </div>
+
                         <div className="flex flex-col items-center drop-shadow uppercase mt-4 ">
                             <span className="font-light text-xl">the three pillars of Atlas</span>
                             <p className="text-3xl mb-4 mt-2 font-mont">
@@ -136,7 +113,6 @@ function Landing({ access, refresh }) {
 
                 <div className="flex flex-col items-center justify-center bg-black shadow-inner-sm drop-shadow-xl p-6 text-white w-full z-40">
                     <div className="flex flex-row items-end">
-                        <img src="https://plotter-medi-0814.s3.us-east-2.amazonaws.com/1010.png" className="drop-shadow-md h-[80px] z-30 mr-5" alt='sub-header-0' />
                         <div className="flex flex-col items-center drop-shadow uppercase mb-2">
                             <span className="font-light text-xl">A GLIMPSE AT THE </span>
                             <span className="text-3xl mt-0">
@@ -146,9 +122,7 @@ function Landing({ access, refresh }) {
                     </div>
 
                     <div className="flex flex-col md:flex-row items-center justify-center mt-4">
-                        <div className="w-full sm:w-1/2 mt-4 sm:mt-0">
-                            <img src="https://plotter-medi-0814.s3.us-east-2.amazonaws.com/1020.png" className="drop-shadow-md rounded-2xl" alt='dashboard-0' />
-                        </div>
+
                         <div className="flex flex-col items-center justify-center w-full sm:w-1/3 pr-6 pl-6 mt-6">
                             <p>From your dashboard, you'll see daily stats like upcoming move-ins and renewal timeframes and monthly reports like income summaries and overdues. The dashboard also has the ability to check current commission rates, send guest cards, set to-do's and calculate net effective rates.</p>
                             <p>And we're currently developing a comprehensive stats feature (exciting, right?) to track everything from most-recommended properties to most-leased, and beyond! </p>

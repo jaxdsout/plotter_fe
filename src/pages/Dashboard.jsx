@@ -1,10 +1,11 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Divider } from 'semantic-ui-react';
 import { auth_user, load_user, lock_out, refresh_token } from '../store/actions/auth';
 import { widget_close } from '../store/actions/ui';
+import "./pages.css";
 
 import AllCards from '../components/cards/AllCards';
 import NewCard from '../components/cards/NewCard';
@@ -56,70 +57,68 @@ function Dashboard({ auth_user, refresh_token, access, refresh, lock_out, widget
 
 
     return (
-        <div className='w-full flex flex-col items-center justify-evenly'>
-            <div className="w-full h-full p-3 sm:p-5 mt-3 bg-white shadow-inner shadow-md overflow-y-hidden">
+        <div className="dashboard">
+            <motion.div
+                className='dashNav'
+                initial={{ translateY: -200 }}
+                animate={{ translateY: 0 }}
+                exit={{ translateY: -200 }}
+                transition={{ duration: 0.5 }}
+            >
+                <Tab to="/dashboard/home" icon="home icon" subtitle="home" currentPath={pathName} />
+                <Tab to="/dashboard/search" icon="search icon" subtitle="search" currentPath={pathName} />
+                <Tab to="/dashboard/clients" icon="users icon" subtitle="clients" currentPath={pathName} />
+                <Tab to="/dashboard/lists" icon="list alternate icon" subtitle="lists" currentPath={pathName} />
+                <Tab to="/dashboard/deals" icon="chart pie icon" subtitle="deals" currentPath={pathName} />
+                <Tab to="/dashboard/cards" icon="address card icon" subtitle="cards" currentPath={pathName} />
+            </motion.div>
+            <Divider />
+            <AnimatePresence mode='wait'>
                 <motion.div
-                    className='p-3 sm:p-5 flex flex-row items-center justify-center bg-[#3e3e3e] bg-blend-color-burn rounded-md'
-                    style={{ zIndex: 3 }}
-                    initial={{ translateY: -200 }}
+                    key={basePath}
+                    className='dashFrame'
+                    initial={{ translateY: 800 }}
                     animate={{ translateY: 0 }}
-                    exit={{ translateY: -200 }}
+                    exit={{ translateY: 800 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <Tab to="/dashboard/home" icon="home icon" subtitle="home" currentPath={pathName} />
-                    <Tab to="/dashboard/search" icon="search icon" subtitle="search" currentPath={pathName} />
-                    <Tab to="/dashboard/clients" icon="users icon" subtitle="clients" currentPath={pathName} />
-                    <Tab to="/dashboard/lists" icon="list alternate icon" subtitle="lists" currentPath={pathName} />
-                    <Tab to="/dashboard/deals" icon="chart pie icon" subtitle="deals" currentPath={pathName} />
-                    <Tab to="/dashboard/cards" icon="address card icon" subtitle="cards" currentPath={pathName} />
+                    {basePath === 'home' &&
+                        <Dash />
+                    }
+                    {basePath === 'search' &&
+                        <AllProps />
+                    }
+                    {basePath === 'clients' &&
+                        <>
+                            <NewClient />
+                            <AllClients />
+                        </>
+                    }
+                    {basePath === 'lists' &&
+                        <>
+                            <NewList />
+                            <AllLists />
+                        </>
+                    }
+                    {basePath === 'deals' &&
+                        <>
+                            <NewDeal />
+                            <AllDeals />
+                        </>
+                    }
+                    {basePath === 'cards' &&
+                        <>
+                            <NewCard />
+                            <AllCards />
+                        </>
+                    }
                 </motion.div>
-                <Divider />
-                <AnimatePresence mode='wait'>
-
-                    <motion.div
-                        key={basePath}
-                        className='w-full flex flex-col items-center justify-start bg-gray-100 rounded-lg shadow-inner mt-6 mb-8'
-                        initial={{ translateY: 800 }}
-                        animate={{ translateY: 0 }}
-                        exit={{ translateY: 800 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        {basePath === 'home' && <Dash />}
-                        {basePath === 'search' && <AllProps />}
-                        {basePath === 'clients' &&
-                            <>
-                                <NewClient />
-                                <AllClients />
-                            </>
-                        }
-                        {basePath === 'lists' &&
-                            <>
-                                <NewList />
-                                <AllLists />
-                            </>
-                        }
-                        {basePath === 'deals' &&
-                            <>
-                                <NewDeal />
-                                <AllDeals />
-                            </>
-                        }
-                        {basePath === 'cards' &&
-                            <>
-                                <NewCard />
-                                <AllCards />
-                            </>
-                        }
-                    </motion.div>
-                </AnimatePresence>
-
-            </div>
-            <AnimatePresence>
-                {widget !== '' && (
-                    <Widget type={widget} />
-                )}
             </AnimatePresence>
-
+            {widget !== '' && (
+                <AnimatePresence>
+                    <Widget type={widget} />
+                </AnimatePresence>
+            )}
         </div>
     )
 }
@@ -127,19 +126,13 @@ function Dashboard({ auth_user, refresh_token, access, refresh, lock_out, widget
 
 const Tab = ({ to, icon, currentPath, subtitle }) => {
     const isActive = currentPath === to;
+    const navigate = useNavigate();
 
     return (
-        <div className='relative flex flex-col items-center justify-center px-4 md:px-5'>
-            <h1 className='text-4xl md:text-5xl'>
-                <Link to={to}>
-                    {icon ? <i className={`font-mont drop-shadow-md active:translate-y-0.5
-                    ${isActive ? "text-[#89a2dc]" : "text-white"} hover:text-[#5F85DB] ${icon}`} /> : null}
-                </Link>
-            </h1>
-            <p className='font-mont text-white text-center text-[0.6rem] -mt-2 -ml-1'>{subtitle.toUpperCase()}</p>
-
+        <div className={`dashTab ${isActive && "activeTab"}`}>
+            <i className={`${icon}`} onClick={() => navigate(to)} />
+            <p>{subtitle.toUpperCase()}</p>
         </div>
-
     )
 }
 

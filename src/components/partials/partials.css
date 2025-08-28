@@ -1,29 +1,117 @@
+@font-face {
+    font-family: "Arial Narrow";
+    src: url("../../fonts/arial_narrow_7.ttf");
+}
+
 .navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-bottom-left-radius: 80%;
-    border-bottom-right-radius: 80%;
-    background-color: #262626;
-    padding: 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #edecea;
+    padding: 2rem;
     z-index: 5;
 }
 
-
 .navLogo {
-    color: #5F85DB;
-    font-size: 50px;
+    color: #3E3E3E;
+    font-size: 40px;
     text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
-    font-family: "Bungee", sans-serif;
+    font-family: "Arial Narrow", sans-serif;
+    cursor: pointer;
+
 }
 
 .navLogo:hover {
-    color: #4d6ebb
+    color: #bf8d57
+}
+
+.authNavbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    gap: 10px;
+}
+
+.signupNavbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.popupTrigger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+
+.popupTrigger i {
+    font-size: 30px;
+}
+
+.popupTrigger i:active {
+    transform: translateY(0.125rem);
+}
+
+.popupTrigger:hover {
+    color: #be8d08
+}
+
+.popupTrigger p {
+    display: none;
+}
+
+.authFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #edecea;
+    color: black;
+    text-align: center;
+    padding: 1.5rem;
+    line-height: 1.25rem;
+    width: 100%;
+}
+
+#haveQuestion {
+    margin: 5px 0 0 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#questionEmail {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.copyright {
+    font-size: 0.875rem;
 }
 
 @media screen and (min-width: 550px) {
     .navLogo {
-        font-size: 70px
+        font-size: 60px
+    }
+
+    .popupTrigger {
+        margin-right: 2rem;
+    }
+
+    .popupTrigger p {
+        display: block;
+        font-size: 0.85rem;
+        color: #3E3E3E;
+        font-family: "Arial Narrow", sans-serif;
+
     }
 }
