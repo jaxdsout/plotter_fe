@@ -2,7 +2,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Divider } from 'semantic-ui-react';
 import { auth_user, load_user, lock_out, refresh_token } from '../store/actions/auth';
 import { widget_close } from '../store/actions/ui';
 import "./pages.css";
@@ -72,7 +71,6 @@ function Dashboard({ auth_user, refresh_token, access, refresh, lock_out, widget
                 <Tab to="/dashboard/deals" icon="chart pie icon" subtitle="deals" currentPath={pathName} />
                 <Tab to="/dashboard/cards" icon="address card icon" subtitle="cards" currentPath={pathName} />
             </motion.div>
-            <Divider />
             <AnimatePresence mode='wait'>
                 <motion.div
                     key={basePath}
@@ -129,8 +127,8 @@ const Tab = ({ to, icon, currentPath, subtitle }) => {
     const navigate = useNavigate();
 
     return (
-        <div className={`dashTab ${isActive && "activeTab"}`}>
-            <i className={`${icon}`} onClick={() => navigate(to)} />
+        <div className={`dashTab ${isActive && "activeTab"}`} onClick={() => navigate(to)}>
+            <i className={`${icon}`} />
             <p>{subtitle.toUpperCase()}</p>
         </div>
     )

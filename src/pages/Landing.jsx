@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { connect } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "semantic-ui-react";
-import LandingLoop from "../images/videos/0224.mp4";
+import LandingLoop from "../assets/videos/0224.mp4";
 import { reset_client_view } from "../store/actions/ui";
 
 function Landing({ access, refresh }) {

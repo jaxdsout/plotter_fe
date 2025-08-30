@@ -1,3 +1,134 @@
 .dash {
-    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: hidden;
+    width: 100%;
+    padding: 2rem;
+}
+
+.dashColumn {
+    margin: 0 0.75rem 0 0.75rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.earningContainer {
+    position: relative;
+    margin-top: 0.5rem;
+    margin-bottom: 5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    max-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white !important;
+}
+
+#bar,
+#doughnut {
+    height: 100%;
+}
+
+.tasks {
+    margin: 10px 10px 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: #26282B;
+    padding: 20px
+}
+
+.tasksHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tasksHeader p {
+    color: white;
+    font-family: 'Tigeroa', sans-serif;
+    text-align: center;
+}
+
+.tasksHeader i {
+    color: white;
+    font-size: 30px;
+    margin-left: 0px;
+    padding: 3px;
+}
+
+.tasksBody {
+    margin-top: 10px;
+}
+
+.tasksBody ul {
+    padding: 0 10px 0 10px;
+}
+
+.tasksBody li {
+    margin-bottom: 0;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+}
+
+.tasksField,
+.newTask {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: -10px;
+}
+
+.tasksCheck {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.tasksDescription {
+    pointer-events: none;
+    color: white !important;
+    width: 250px !important;
+    background-color: rgba(0, 0, 0, 0.305) !important;
+}
+
+.tasksSave {
+    position: absolute;
+    right: 0;
+    padding: 10px 20px 10px 20px;
+    background-color: #232425;
+}
+
+.completedTasks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#completedButton {
+    margin: 10px 0 10px 0 !important;
+}
+
+@media (min-width: 768px) {
+    .dash {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .dashColumn {
+        width: 66.666667%;
+    }
 }

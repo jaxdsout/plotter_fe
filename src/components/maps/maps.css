@@ -1,0 +1,44 @@
+.button1 {
+    color: black;
+    padding: 10px 20px 10px 20px;
+}
+
+.mapBox {
+    border-radius: 0.375rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.clientListMatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.clientListImg {
+    height: 100px;
+    border-radius: 15px;
+}
+
+.clientListMap,
+.listMatchMap {
+    height: 24rem;
+    width: 24rem;
+}
+
+.searchMatchMap {
+    height: 42rem;
+    width: 28rem;
+}
+
+@media screen and (min-width: 550px) {
+    .clientListMap {
+        height: 33rem;
+        width: 33rem;
+    }
+
+    .searchMatchMap {
+        height: 100%;
+        width: 100%;
+    }
+}

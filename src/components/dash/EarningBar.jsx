@@ -8,7 +8,6 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 function EarningBar({ deals }) {
   const [monthlyEarnings, setMonthlyEarnings] = useState(Array(12).fill(0));
 
-
   useEffect(() => {
     if (deals?.length > 0) {
       const earningsByMonth = Array(12).fill(0);
@@ -46,7 +45,7 @@ function EarningBar({ deals }) {
       title: {
         display: false,
         text: 'Monthly Sales Revenue',
-        color: '#1f2124'
+        color: '#ffffffff'
       },
       tooltip: {
         displayColors: false,
@@ -62,39 +61,34 @@ function EarningBar({ deals }) {
       y: {
         beginAtZero: true,
         grid: {
-          color: '#1f2124',
-          borderColor: '#1f2124',
+          color: '#ffffffff',
+          borderColor: '#ffffffff',
           borderDash: [5, 5],
         },
         ticks: {
-          color: 'black',
+          color: 'white',
           callback: function (value, index, ticks) {
             return '$' + value;
           }
         },
-
-
       },
       x: {
         grid: {
-          color: '#1f2124',
+          color: '#ffffffff',
           drawOnChartArea: false,
         },
         ticks: {
-          color: '#1f2124',
+          color: '#ffffffff',
         },
       },
     },
   };
 
   return (
-    <div className='relative mt-2 mb-20 px-5 md:mb-20 max-h-[20rem] flex flex-col items-center'>
-      <Bar data={data} options={options} className='h-full' />
+    <div className='earningContainer'>
+      <Bar data={data} options={options} id="bar" />
     </div>
-
   )
-
-
 }
 
 const mapStateToProps = state => ({

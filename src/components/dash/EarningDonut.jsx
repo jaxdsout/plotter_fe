@@ -73,8 +73,8 @@ function EarningDonut({ deals }) {
   };
 
   return (
-    <div className='relative flex flex-col items-center mt-5 mb-2 max-h-[24rem]'>
-      <Doughnut data={data} options={options} className='h-full' />
+    <div className='earningContainer'>
+      <Doughnut data={data} options={options} id="doughnut" />
     </div>
 
   )

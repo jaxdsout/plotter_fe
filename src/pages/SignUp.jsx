@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { connect } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Divider, Form, FormField, Loader, Message } from "semantic-ui-react";
@@ -33,13 +33,13 @@ function Signup({ signup, error, message, signupSuccess, set_signup_success }) {
 
     }
 
-    useEffect(() => {
-        if (signupSuccess) {
-            set_signup_success();
-            setLoading(false);
-            setTimeout(() => navigate('/login/'), 3000);
-        }
-    }, [signupSuccess, navigate, set_signup_success])
+    // useEffect(() => {
+    //     if (signupSuccess) {
+    //         set_signup_success();
+    //         setLoading(false);
+    //         setTimeout(() => navigate('/login/'), 3000);
+    //     }
+    // }, [signupSuccess, navigate, set_signup_success])
 
 
     return (

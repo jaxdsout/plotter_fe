@@ -5,14 +5,13 @@ import Upcoming from './Upcoming';
 import "./dash.css";
 
 export default function Dash() {
-
     return (
-        <div className='dash flex flex-col md:flex-row items-center justify-start md:items-start md:justify-center overflow-x-hidden w-full'>
-            <div className='mx-3 w-full md:w-2/3 flex flex-col'>
+        <div className='dash'>
+            <div className='dashColumn'>
                 <Tasks />
                 <Upcoming />
             </div>
-            <div className='mx-3 w-full md:w-1/3 flex flex-col justify-center h-full'>
+            <div className='dashColumn'>
                 <EarningDonut />
                 <EarningBar />
             </div>

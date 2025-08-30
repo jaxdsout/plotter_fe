@@ -1,6 +1,11 @@
 @font-face {
     font-family: "Arial Narrow";
-    src: url("../../fonts/arial_narrow_7.ttf");
+    src: url("../../assets/fonts/Arial_Narrow.ttf");
+}
+
+@font-face {
+    font-family: "Tigeroa";
+    src: url("../../assets/fonts/Tigeroa.otf");
 }
 
 .navbar {
@@ -10,22 +15,22 @@
     align-items: center;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    background-color: #edecea;
+    background-color: #e1e1e1;
     padding: 2rem;
     z-index: 5;
 }
 
 .navLogo {
-    color: #3E3E3E;
+    color: black;
     font-size: 40px;
     text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
-    font-family: "Arial Narrow", sans-serif;
+    font-family: "Tigeroa", sans-serif;
     cursor: pointer;
 
 }
 
 .navLogo:hover {
-    color: #bf8d57
+    color: #4c4c47
 }
 
 .authNavbar {
@@ -63,7 +68,7 @@
 }
 
 .popupTrigger:hover {
-    color: #be8d08
+    color: #4c4c47
 }
 
 .popupTrigger p {
@@ -74,8 +79,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #edecea;
-    color: black;
+    background-color: #0e0e0e;
+    color: white;
     text-align: center;
     padding: 1.5rem;
     line-height: 1.25rem;
@@ -97,6 +102,8 @@
 .copyright {
     font-size: 0.875rem;
 }
+
+
 
 @media screen and (min-width: 550px) {
     .navLogo {

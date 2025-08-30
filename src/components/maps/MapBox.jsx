@@ -1,12 +1,13 @@
-import { useEffect, useState, useRef } from 'react';
-import { connect } from 'react-redux';
-import mapboxgl from 'mapbox-gl';
 import MapboxDraw from "@mapbox/mapbox-gl-draw";
-import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css'
-import { set_polygon_props, set_polygon } from '../../store/actions/agent';
-import concaveman from 'concaveman';
-import { useMatch, useLocation } from 'react-router-dom';
+import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 import * as turf from "@turf/turf";
+import concaveman from 'concaveman';
+import mapboxgl from 'mapbox-gl';
+import { useEffect, useRef, useState } from 'react';
+import { connect } from 'react-redux';
+import { useLocation, useMatch } from 'react-router-dom';
+import { set_polygon, set_polygon_props } from '../../store/actions/agent';
+import './maps.css';
 
 const MapBox = ({ options, retr_options, properties, set_polygon_props, set_polygon, userPolygon, isClientView, isListMode, handleOpenModal }) => {
   const [mapOptions, setMapOptions] = useState();
@@ -73,13 +74,13 @@ const MapBox = ({ options, retr_options, properties, set_polygon_props, set_poly
           if (isSearchMatch) {
             const button = document.createElement('button');
             button.textContent = option.name;
-            button.className = 'text-black px-3 py-2 text-blue-600'
+            button.className = 'button1'
             button.onclick = () => handleOpenModal(option);
             popupContent.appendChild(button);
           }
 
           if (isClientListMatch) {
-            popupContent.className = 'flex flex-col items-center'
+            popupContent.className = 'clientListMatch'
             const img = document.createElement('img');
             img.src = option.prop_image;
             img.alt = option.prop_name;
@@ -90,7 +91,7 @@ const MapBox = ({ options, retr_options, properties, set_polygon_props, set_poly
             link.href = `https://www.google.com/maps/search/?q=${option.prop_name}`
             link.target = "_blank"
             link.rel = "noopener noreferrer"
-            img.className = 'h-[100px] rounded-md'
+            img.className = 'clientListImg'
             popupContent.appendChild(img)
             popupContent.appendChild(text)
             popupContent.appendChild(link)
@@ -174,10 +175,10 @@ const MapBox = ({ options, retr_options, properties, set_polygon_props, set_poly
   return (
     <div
       ref={mapContainerRef}
-      className={`rounded-md shadow-md 
-        ${isClientListMatch && 'h-[24rem] w-[24rem] md:h-[33rem] md:w-[33rem]'}
-        ${isListMatch && 'h-[24rem] w-[24rem]'}
-        ${isSearchMatch && 'h-[42rem] w-[28rem] md:h-full md:w-full'}
+      className={`mapBox 
+        ${isClientListMatch && 'clientListMap'}
+        ${isListMatch && 'listMatchMap'}
+        ${isSearchMatch && 'searchMatchMap'}
       `}
     ></div>
   );

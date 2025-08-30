@@ -1,5 +1,11 @@
+@font-face {
+  font-family: "Arial Narrow";
+  src: url("./assets/fonts/Arial_Narrow.ttf");
+}
+
 body {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
 }
 
 .root {
@@ -13,22 +19,66 @@ body {
 
 .button {
   font-family: "Archivo Black", sans-serif;
-  background-color: #77524d !important;
+  background-color: #4c4c47 !important;
   white-space: nowrap;
   font-size: 0.875rem;
   line-height: 1.25rem;
   filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
   padding: 10px 20px 10px 20px;
   margin: 0 10px 0 10px;
-  color: white;
+  color: white !important;
   border-radius: 5%;
+  font-family: "Tigeroa", sans-serif !important;
+  letter-spacing: 0.125rem;
 }
 
 .button:hover {
-  background-color: #bf8d57 !important;
+  background-color: black !important;
   color: white !important;
 }
 
 .button:active {
   color: white
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 20px 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0e0e0e;
+  height: 100vh;
+}
+
+.subContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.form {
+  width: 300px;
+}
+
+.formField label {
+  color: white !important;
+}
+
+.formField input {
+  color: white !important;
+  background-color: #1414149e !important;
+  border: #0e0e0e;
+}
+
+@media screen and (min-width: 550px) {
+  .subContainer {
+    flex-direction: row;
+  }
 }
