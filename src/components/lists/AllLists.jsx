@@ -44,28 +44,28 @@ function AllLists({ lists, reset_list_mode, isListMode, load_list, isLoaded }) {
   };
 
   return (
-    <div className="listsPage">
-      <div className="listsList">
+    <div className="dataPage">
+      <div className="dataList">
         {!isLoaded ? (
           <Loader inverted active />
         ) : sortedLists.length > 0 ? (
           <>
-            <table className="listsTable">
-              <thead className="listsThead">
+            <table className="dataTable">
+              <thead className="dataThead">
                 <tr>
-                  <th className="listsThFirst">Client</th>
-                  <th className="listsThLast">Date Created</th>
+                  <th className="dataThFirst">Client</th>
+                  <th className="dataThLast">Date Created</th>
                 </tr>
               </thead>
               <tbody>
                 {sortedLists.map((list) => (
                   <tr
                     key={list.id}
-                    className="listsRow"
+                    className="dataRow"
                     onClick={() => handleOpenModal(list.id)}
                   >
-                    <td className="listsTd">{list.client_name}</td>
-                    <td className="listsTdSm">{formatDate(list.date)}</td>
+                    <td className="dataTd">{list.client_name}</td>
+                    <td className="dataTdSm">{formatDate(list.date)}</td>
                   </tr>
                 ))}
               </tbody>

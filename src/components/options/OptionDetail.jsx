@@ -67,20 +67,20 @@ function OptionDetail({ option, isReorderMode, delete_option, load_list, list })
                                 open
                                 position="left center"
                                 size="tiny"
-                                className="optionDeletePopup"
+                                className="deletePopup"
                                 trigger={
                                     <button
                                         type="submit"
                                         className="optionDeleteBtnConfirm"
                                         onClick={() => handleDelete(option.id, list)}
                                     >
-                                        <i className="trash alternate icon" style={{ marginRight: '-0.25rem', marginLeft: '-0.25rem' }}></i>
+                                        <i className="trash alternate icon iconNarrow"></i>
                                     </button>
                                 }
                             />
                         ) : (
                             <button onClick={() => handleDeleteConfirm(option.id)} className="optionActionBtn">
-                                <i className="trash alternate icon" style={{ marginRight: '-0.25rem', marginLeft: '-0.25rem' }}></i>
+                                <i className="trash alternate icon iconNarrow"></i>
                             </button>
                         )}
                     </div>

@@ -17,6 +17,7 @@
     padding: 0.25rem;
     border-radius: 0.5rem;
     list-style: none;
+    transition: background-color 0.15s;
 }
 
 .optionListItem:hover {
@@ -69,13 +70,14 @@
 }
 
 .optionActionBtn {
-    padding: 0.75rem;
+    padding: 0.625rem 0.75rem;
     background-color: #2d2d2e;
     color: white;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 6px;
     margin-right: 0.5rem;
     cursor: pointer;
+    transition: background-color 0.15s;
 }
 
 .optionActionBtn:hover {
@@ -83,38 +85,30 @@
 }
 
 .optionDeleteBtnConfirm {
-    padding: 0.75rem;
+    padding: 0.625rem 0.75rem;
     background-color: #dc2626;
     color: white;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 6px;
     margin-right: 0.5rem;
     cursor: pointer;
+    transition: background-color 0.15s;
 }
 
 .optionDeleteBtnConfirm:hover {
     background-color: #b91c1c;
 }
 
-.optionDeletePopup {
-    color: #b91c1c !important;
-    font-weight: 900 !important;
-}
-
-.optionIconNarrow {
-    margin-right: -0.25rem !important;
-    margin-left: -0.25rem !important;
-}
-
 /* UpdateOption */
 .updateOptionBtn {
-    padding: 0.75rem;
+    padding: 0.625rem 0.75rem;
     background-color: #1f2124;
     color: white;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 6px;
     margin-right: 0.5rem;
     cursor: pointer;
+    transition: background-color 0.15s;
 }
 
 .updateOptionBtn:hover {
@@ -127,29 +121,16 @@
     justify-content: center;
 }
 
-.updateOptionFieldWrapper {
-    position: relative;
-}
-
-.updateOptionPrefix {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    padding-left: 1rem;
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    font-weight: bold;
-    pointer-events: none;
-}
-
-.updateOptionIndent {
-    text-indent: 1rem;
-}
-
 /* OptionControls */
 .optionControlsBtn {
     filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
     white-space: nowrap;
+    background-color: #2d2d2e !important;
+    color: white !important;
+    transition: background-color 0.15s !important;
 }
+
+.optionSendBtn:hover { background-color: #16a34a !important; }
+.optionReorderBtn:hover { background-color: #5F85DB !important; }
+.optionClearBtn:hover { background-color: #d97706 !important; }
+.optionBackBtn:hover { background-color: #dc2626 !important; }

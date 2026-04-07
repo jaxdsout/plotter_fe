@@ -26,30 +26,30 @@ function AllDeals({ deals, isDealMode, reset_deal_mode, isLoaded }) {
   }
 
   return (
-    <div className="dealsPage">
-      <div className="dealsList">
+    <div className="dataPage">
+      <div className="dataList">
         {!isLoaded ? (
           <Loader inverted active />
         ) : deals.length > 0 ? (
           <>
-            <table className="dealsTable">
-              <thead className="dealsThead">
+            <table className="dataTable">
+              <thead className="dataThead">
                 <tr>
-                  <th className="dealsThFirst">Client</th>
-                  <th className="dealsTh">Property</th>
-                  <th className="dealsThLast">Date Created</th>
+                  <th className="dataThFirst">Client</th>
+                  <th className="dataTh">Property</th>
+                  <th className="dataThLast">Date Created</th>
                 </tr>
               </thead>
               <tbody>
                 {deals.map((deal) => (
                   <tr
                     key={deal.id}
-                    className="dealsRow"
+                    className="dataRow"
                     onClick={() => handleOpenModal(deal.id)}
                   >
-                    <td className="dealsTd">{deal.client_name}</td>
-                    <td className="dealsTdSm">{deal.prop_name}</td>
-                    <td className="dealsTdSm">{deal.deal_date}</td>
+                    <td className="dataTd">{deal.client_name}</td>
+                    <td className="dataTdSm">{deal.prop_name}</td>
+                    <td className="dataTdSm">{deal.deal_date}</td>
                   </tr>
                 ))}
               </tbody>

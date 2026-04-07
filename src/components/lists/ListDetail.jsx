@@ -119,7 +119,7 @@ function ListDetail({ listID, list, property, user, set_list_mode, new_option, h
                     {list?.options.map((option, index) => (
                       <tr
                         key={option.id}
-                        className={index % 2 === 0 ? 'listDetailRowEven' : 'listDetailRowOdd'}
+                        className="listDetailRow"
                       >
                         <td className="listDetailTd">{option?.prop_name}</td>
                         <td className="listDetailTdXs">${option?.price}</td>

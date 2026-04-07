@@ -124,8 +124,8 @@ function EditDeal({ dealID, user, load_deal, deal, isDealMode, update_deal, rese
           </FormField>
           <FormField className="editDealCol">
             <label htmlFor='lease_term'>Lease Term:</label>
-            <div className="dealInputWrapper">
-              <span className="dealInputSuffixMos">mos</span>
+            <div className="inputWrapper">
+              <span className="inputSuffixMos">mos</span>
               <input
                 type='text'
                 name='lease_term'
@@ -139,10 +139,10 @@ function EditDeal({ dealID, user, load_deal, deal, isDealMode, update_deal, rese
         <FormGroup className="editDealFieldRow">
           <FormField className="editDealCol">
             <label htmlFor='rent'>Rent:</label>
-            <div className="dealInputWrapper">
-              <span className="dealInputPrefix">$</span>
+            <div className="inputWrapper">
+              <span className="inputPrefix">$</span>
               <input
-                className="dealInputIndent"
+                className="inputIndent"
                 type='number'
                 name='rent'
                 value={rent}
@@ -161,8 +161,8 @@ function EditDeal({ dealID, user, load_deal, deal, isDealMode, update_deal, rese
                 disabled
               />
             ) : (
-              <div className="dealInputWrapper">
-                <span className="dealInputSuffix">%</span>
+              <div className="inputWrapper">
+                <span className="inputSuffix">%</span>
                 <input
                   type='number'
                   name='rate'
@@ -181,13 +181,13 @@ function EditDeal({ dealID, user, load_deal, deal, isDealMode, update_deal, rese
               </div>
             </label>
             {flatFee ? (
-              <div className="dealInputWrapper">
-                <span className="dealInputPrefix">$</span>
+              <div className="inputWrapper">
+                <span className="inputPrefix">$</span>
                 <input
                   type='number'
                   name='flat_fee'
                   value={flat_fee}
-                  className="dealInputIndent"
+                  className="inputIndent"
                   onChange={handleChange}
                   required
                 />
@@ -203,7 +203,7 @@ function EditDeal({ dealID, user, load_deal, deal, isDealMode, update_deal, rese
           </FormField>
           <FormField className="editDealCol">
             <label htmlFor='commission'>Total:</label>
-            <div className="dealInputWrapper">
+            <div className="inputWrapper">
               <span className="editDealTotalPrefix">$</span>
               <input
                 type='number'

@@ -56,7 +56,7 @@ function Signup({ signup, error, message, signupSuccess, set_signup_success }) {
           <FormField>
             <label className="authLabel" htmlFor='first_name'>First Name:</label>
             <input
-              className="authInput"
+              className="darkInput"
               type='text'
               name='first_name'
               value={first_name}
@@ -67,7 +67,7 @@ function Signup({ signup, error, message, signupSuccess, set_signup_success }) {
           <FormField>
             <label className="authLabel" htmlFor='last_name'>Last Name:</label>
             <input
-              className="authInput"
+              className="darkInput"
               type='text'
               name='last_name'
               value={last_name}
@@ -78,7 +78,7 @@ function Signup({ signup, error, message, signupSuccess, set_signup_success }) {
           <FormField>
             <label className="authLabel" htmlFor='email'>Email:</label>
             <input
-              className="authInput"
+              className="darkInput"
               type='email'
               name='email'
               value={email}
@@ -89,7 +89,7 @@ function Signup({ signup, error, message, signupSuccess, set_signup_success }) {
           <FormField>
             <label className="authLabel" htmlFor='password'>Password:</label>
             <input
-              className="authInput"
+              className="darkInput"
               type='password'
               name='password'
               value={password}
@@ -100,7 +100,7 @@ function Signup({ signup, error, message, signupSuccess, set_signup_success }) {
           <FormField>
             <label className="authLabel" htmlFor='re_password'>Re-Enter Password:</label>
             <input
-              className="authInput"
+              className="darkInput"
               type='password'
               name='re_password'
               value={re_password}

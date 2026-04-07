@@ -129,7 +129,7 @@ export default function uiReducer(state = initialState, action) {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        message: 'Login successful.',
+        message: ''
       }
     case ACTIVATE_SUCCESS:
       return {
@@ -212,7 +212,8 @@ export default function uiReducer(state = initialState, action) {
     case LOAD_CARDS_SUCCESS:
       return {
         ...state,
-        isClientView: false
+        isClientView: false,
+        message: ''
       }
 
     default:

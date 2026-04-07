@@ -50,9 +50,8 @@ function OptionControls({ clear_options, list, load_list, reset_reorder_mode, se
 
     if (isReorderMode) return (
         <Button
-            className="optionControlsBtn"
+            className="optionControlsBtn optionReorderBtn"
             onClick={handleReorder}
-            style={{ backgroundColor: isReorderMode ? "#3a3a3a" : "#4c4c47", color: "white" }}
             size='tiny'
         >
             {isReorderMode ?
@@ -74,14 +73,13 @@ function OptionControls({ clear_options, list, load_list, reset_reorder_mode, se
                     <i className="check circle icon" />CONFIRM CLEAR
                 </Button>
             ) : (
-                <Button className="optionControlsBtn" color='black' size='tiny' onClick={(() => handleConfirmClear())}>
+                <Button className="optionControlsBtn optionClearBtn" size='tiny' onClick={(() => handleConfirmClear())}>
                     <i className="exclamation triangle icon" />CLEAR LIST
                 </Button>
             )}
             <Button
-                className="optionControlsBtn"
+                className="optionControlsBtn optionReorderBtn"
                 onClick={handleReorder}
-                style={{ backgroundColor: isReorderMode ? "#3a3a3a" : "#4c4c47", color: "white" }}
                 size='tiny'
             >
                 {isReorderMode ?
@@ -101,7 +99,7 @@ function OptionControls({ clear_options, list, load_list, reset_reorder_mode, se
                             <i className="check circle icon" />SAVE LIST
                         </Button>
                     ) : (
-                        <Button className="optionControlsBtn" type='submit' color='green' size='tiny' onClick={handleSendList}>
+                        <Button className="optionControlsBtn optionSendBtn" type='submit' size='tiny' onClick={handleSendList}>
                             <i className="check circle icon" />SEND LIST
                         </Button>
                     )}

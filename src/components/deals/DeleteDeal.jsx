@@ -32,7 +32,7 @@ function DeleteDeal({ delete_deal, load_deals, deal, handleCloseModal, user }) {
           content="CONFIRM DELETE"
           open
           position="top center"
-          className='dealDeletePopup'
+          className='deletePopup'
           trigger={
             <Button
               type="submit"

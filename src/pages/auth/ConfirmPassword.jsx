@@ -39,7 +39,7 @@ function ConfirmPassword({ reset_password_confirm }) {
           <FormField>
             <label className="authLabel" htmlFor='password'>Password:</label>
             <input
-              className="authInput"
+              className="darkInput"
               type='password'
               name='new_password'
               value={new_password}
@@ -51,7 +51,7 @@ function ConfirmPassword({ reset_password_confirm }) {
           <FormField>
             <label className="authLabel" htmlFor='password'>Confirm Password:</label>
             <input
-              className="authInput"
+              className="darkInput"
               type='password'
               name='re_new_password'
               value={re_new_password}

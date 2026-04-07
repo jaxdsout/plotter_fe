@@ -47,7 +47,7 @@ function ResetPassword({ reset_password, message, resetSuccess, set_reset_succes
           <FormField>
             <label className="authLabel" htmlFor='email'>Email:</label>
             <input
-              className="authInput"
+              className="darkInput"
               type='email'
               name='email'
               value={email}

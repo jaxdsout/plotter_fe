@@ -58,7 +58,7 @@ function NewClient({ user, load_clients, new_client, clientTaken, verify_client_
 
   return (
     <>
-      <div className="clientsAddRow">
+      <div className="dataAddRow">
         <Button onClick={handleOpenModal} className="button">+</Button>
       </div>
       <div>

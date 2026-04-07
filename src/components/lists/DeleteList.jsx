@@ -28,20 +28,20 @@ function DeleteList({ delete_list, load_lists, list, handleCloseModal, user }) {
           open
           position="top center"
           size="tiny"
-          className="deleteListPopup"
+          className="deletePopup"
           trigger={
             <Button
               type="submit"
               color="red"
               onClick={() => handleDelete(list.id, user.id)}
             >
-              <i className="trash alternate icon" style={{ marginRight: '-0.25rem' }}></i>
+              <i className="trash alternate icon iconNarrow"></i>
             </Button>
           }
         />
       ) : (
         <Button type="submit" color="red" onClick={() => handleDeleteConfirm(list.id)}>
-          <i className="trash alternate icon" style={{ marginRight: '-0.25rem' }}></i>
+          <i className="trash alternate icon iconNarrow"></i>
         </Button>
       )}
     </>

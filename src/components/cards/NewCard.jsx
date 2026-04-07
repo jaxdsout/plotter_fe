@@ -75,7 +75,7 @@ function NewCard({ client, property, user, new_guest_card, reset_guest_card, loa
 
     return (
         <>
-            <div className="cardsAddRow">
+            <div className="dataAddRow">
                 <Button onClick={handleOpenModal} className="button">+</Button>
             </div>
             <div>

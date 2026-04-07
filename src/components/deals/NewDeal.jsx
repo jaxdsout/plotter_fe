@@ -109,7 +109,7 @@ function NewDeal({ user, load_deals, new_deal, client, property }) {
 
   return (
     <>
-      <div className="dealsAddRow">
+      <div className="dataAddRow">
         <Button onClick={handleOpenModal} className="button">+</Button>
       </div>
       <div>
@@ -167,8 +167,8 @@ function NewDeal({ user, load_deals, new_deal, client, property }) {
               </FormField>
               <FormField>
                 <label htmlFor='lease_term'>Lease Term:</label>
-                <div className="dealInputWrapper">
-                  <span className="dealInputSuffixMos">mos</span>
+                <div className="inputWrapper">
+                  <span className="inputSuffixMos">mos</span>
                   <input
                     type='text'
                     name='lease_term'
@@ -180,10 +180,10 @@ function NewDeal({ user, load_deals, new_deal, client, property }) {
               </FormField>
               <FormField>
                 <label htmlFor='rent'>Rent:</label>
-                <div className="dealInputWrapper">
-                  <span className="dealInputPrefix">$</span>
+                <div className="inputWrapper">
+                  <span className="inputPrefix">$</span>
                   <input
-                    className="dealInputIndent"
+                    className="inputIndent"
                     type='number'
                     name='rent'
                     value={rent}
@@ -202,8 +202,8 @@ function NewDeal({ user, load_deals, new_deal, client, property }) {
                     disabled
                   />
                 ) : (
-                  <div className="dealInputWrapper">
-                    <span className="dealInputSuffix">%</span>
+                  <div className="inputWrapper">
+                    <span className="inputSuffix">%</span>
                     <input
                       type='number'
                       name='rate'
@@ -222,13 +222,13 @@ function NewDeal({ user, load_deals, new_deal, client, property }) {
                   </div>
                 </label>
                 {flatFee ? (
-                  <div className="dealInputWrapper">
-                    <span className="dealInputPrefix">$</span>
+                  <div className="inputWrapper">
+                    <span className="inputPrefix">$</span>
                     <input
                       type='number'
                       name='flat_fee'
                       value={flat_fee}
-                      className="dealInputIndent"
+                      className="inputIndent"
                       onChange={handleChange}
                       required
                     />
@@ -244,14 +244,14 @@ function NewDeal({ user, load_deals, new_deal, client, property }) {
               </FormField>
               <FormField>
                 <label htmlFor='commission'>Total Commission:</label>
-                <div className="dealInputWrapper">
-                  <span className="dealInputPrefix">$</span>
+                <div className="inputWrapper">
+                  <span className="inputPrefix">$</span>
                   <input
                     type='number'
                     name='commission'
                     value={commission}
                     onChange={handleCommissionChange}
-                    className="dealInputIndent"
+                    className="inputIndent"
                     required
                   />
                 </div>

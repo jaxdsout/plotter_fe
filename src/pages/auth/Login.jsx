@@ -32,8 +32,8 @@ function Login({ login, isAuthenticated, error, message, auth_user }) {
   }, [isAuthenticated, navigate]);
 
   return (
-    <div className="container animator">
-      <Form onSubmit={handleSubmit} className="form">
+    <div className="loginPage animator">
+      <Form onSubmit={handleSubmit} className="loginCard">
         {error && (
           <Message negative>
             <Message.Header>Login Failed</Message.Header>
@@ -70,7 +70,7 @@ function Login({ login, isAuthenticated, error, message, auth_user }) {
         </div>
       </Form>
       <Divider className="mt-4 mb-4" />
-      <div className="subContainer" id="signUpResetBox">
+      <div className="loginActions" id="signUpResetBox">
         <Link to={"/signup/"}><Button className="button">SIGN UP</Button></Link>
         <Link to={"/reset-password/"}><Button className="button">RESET</Button></Link>
       </div>

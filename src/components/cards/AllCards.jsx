@@ -30,29 +30,29 @@ function AllCards({ cards, isLoaded }) {
   };
 
   return (
-    <div className="cardsPage">
-      <div className="cardsList">
+    <div className="dataPage">
+      <div className="dataList">
         {!isLoaded ? (
           <Loader inverted active />
         ) : cards?.length > 0 ? (
           <>
-            <table className="cardsTable">
-              <thead className="cardsThead">
+            <table className="dataTable">
+              <thead className="dataThead">
                 <tr>
-                  <th className="cardsThFirst">Client</th>
-                  <th className="cardsTh">Property</th>
-                  <th className="cardsThLast">Date Created</th>
+                  <th className="dataThFirst">Client</th>
+                  <th className="dataTh">Property</th>
+                  <th className="dataThLast">Date Created</th>
                 </tr>
               </thead>
               <tbody>
                 {cards.map((card) => (
                   <tr
                     key={card.id}
-                    className="cardsRow"
+                    className="dataRow"
                     onClick={() => handleOpenModal(card)}
                   >
-                    <td className="cardsTd">{card.client_name}</td>
-                    <td className="cardsTdSm">{card.prop_name}</td>
+                    <td className="dataTd">{card.client_name}</td>
+                    <td className="dataTdSm">{card.prop_name}</td>
                     <td className="cardsTdDate">{formatDate(card.date)}</td>
                   </tr>
                 ))}

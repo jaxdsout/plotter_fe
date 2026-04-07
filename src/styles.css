@@ -3,6 +3,10 @@
   src: url("./assets/fonts/Arial_Narrow.ttf");
 }
 
+/* ============================================
+   BASE
+   ============================================ */
+
 body {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
@@ -17,19 +21,23 @@ body {
   margin: 0;
 }
 
+/* ============================================
+   BUTTON
+   ============================================ */
+
 .button {
-  font-family: "Archivo Black", sans-serif;
+  font-family: "Tigeroa", sans-serif !important;
   background-color: #4c4c47 !important;
+  color: white !important;
   white-space: nowrap;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
-  padding: 10px 20px 10px 20px;
-  margin: 0 10px 0 10px;
-  color: white !important;
-  border-radius: 5%;
-  font-family: "Tigeroa", sans-serif !important;
   letter-spacing: 0.125rem;
+  padding: 10px 20px !important;
+  margin: 0 6px !important;
+  border-radius: 6px !important;
+  transition: background-color 0.15s !important;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
 }
 
 .button:hover {
@@ -38,16 +46,20 @@ body {
 }
 
 .button:active {
-  color: white
+  color: white !important;
 }
 
 .buttonBox {
   display: flex;
   justify-content: center;
-  margin: 20px 0 20px 0;
+  margin: 20px 0;
 }
 
-.container {
+/* ============================================
+   LOGIN PAGE CONTAINER
+   ============================================ */
+
+.loginPage {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,16 +68,22 @@ body {
   height: 100vh;
 }
 
-.subContainer {
+.loginCard {
+  width: 30%;
+  min-width: 420px;
+  background-color: #26282B;
+  padding: 1.75rem 1.25rem 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.loginActions {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   text-align: center;
 }
 
-.form {
-  width: 300px;
-}
 
 .formField label {
   color: white !important;
@@ -77,36 +95,204 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
+#signUpResetBox {
+  margin-top: 20px;
+  gap: 20px;
+}
+
 @media screen and (min-width: 550px) {
-  .subContainer {
+  .loginActions {
     flex-direction: row;
   }
 }
 
-/* Modal width overrides */
+/* ============================================
+   MODAL SYSTEM
+   ============================================ */
+
 .modalSm {
-    width: 91.666% !important;
-    max-width: 500px !important;
+  width: 91.666% !important;
+  max-width: 500px !important;
 }
 
 .modalLg {
-    width: 91.666% !important;
-    max-width: 800px !important;
+  width: 91.666% !important;
+  max-width: 800px !important;
 }
 
 .modalActionsRight {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
-/* Utility */
+/* ============================================
+   DATA TABLE SYSTEM
+   Used by: AllCards, AllClients, AllDeals, AllLists, PropList
+   ============================================ */
+
+.dataPage {
+  width: 100%;
+  overflow-y: auto;
+  min-height: 44rem;
+}
+
+.dataList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  min-height: 24rem;
+  max-height: 100%;
+  text-align: left;
+  margin-top: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.dataTable {
+  width: 91.666%;
+}
+
+.dataThead {
+  color: white;
+  background-color: #1f2124;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.dataTh {
+  padding: 0.5rem;
+}
+
+.dataThFirst {
+  padding: 0.5rem;
+  border-radius: 0.375rem 0 0 0.375rem;
+}
+
+.dataThLast {
+  padding: 0.5rem;
+  border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.dataRow {
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.dataRow:nth-child(odd) {
+  background-color: white;
+}
+
+.dataRow:nth-child(even) {
+  background-color: #f3f4f6;
+}
+
+.dataRow:hover {
+  color: white;
+  background-color: #6b7280;
+}
+
+.dataTd {
+  padding: 0.5rem;
+}
+
+.dataTdSm {
+  padding: 0.5rem;
+  font-size: 0.7rem;
+}
+
+.dataAddRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .dataTdSm {
+    font-size: 1rem;
+  }
+
+  .dataThLast {
+    white-space: nowrap;
+  }
+}
+
+/* ============================================
+   INPUT OVERLAY SYSTEM ($ prefix, % suffix, mos suffix)
+   Used by: deals, options, calculator
+   ============================================ */
+
+.inputWrapper {
+  position: relative;
+}
+
+.inputPrefix {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.inputSuffix {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding-right: 1.75rem;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.inputSuffixMos {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding-right: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.inputIndent {
+  text-indent: 1rem;
+}
+
+/* ============================================
+   SHARED UTILITIES
+   ============================================ */
+
 .flexCenter {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-.deleteConfirmPopup {
-    color: #b91c1c !important;
-    font-weight: 900 !important;
-    text-align: center;
+.darkInput {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  color: white !important;
+}
+
+.deletePopup {
+  color: #b91c1c !important;
+  font-weight: 900 !important;
+  text-align: center;
+}
+
+.iconNarrow {
+  margin-right: -0.25rem !important;
+  margin-left: -0.25rem !important;
 }

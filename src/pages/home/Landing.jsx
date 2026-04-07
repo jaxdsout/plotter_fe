@@ -7,6 +7,12 @@ import LandingLoop from "../../assets/videos/0224.mp4";
 import { reset_client_view } from "../../store/actions/ui";
 import "./home.css";
 
+const fadeUp = {
+  initial: { opacity: 0, translateY: 30 },
+  animate: { opacity: 1, translateY: 0 },
+  transition: { duration: 0.5 },
+};
+
 function Landing({ access, refresh }) {
   const navigate = useNavigate();
   const [videoHover, setVideoHover] = useState(false);
@@ -21,9 +27,11 @@ function Landing({ access, refresh }) {
   return (
     <div className="landingPage">
       <div className="landingContent">
+
+        {/* Hero — animates on load */}
         <motion.div
           className="landingHero"
-          initial={{ opacity: 0, translateY: 40 }}
+          initial={{ opacity: 0, translateY: 30 }}
           animate={{ opacity: 1, translateY: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
@@ -31,49 +39,59 @@ function Landing({ access, refresh }) {
           <p className="landingSubtitle">Stop juggling multiple platforms and outdated tools.<br />Get the new one-stop shop for locators.</p>
         </motion.div>
 
+        {/* Mission */}
         <motion.div
-          className="landingMission"
-          initial={{ opacity: 0, translateY: 40 }}
-          animate={{ opacity: 1, translateY: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          className="missionText"
+          initial={fadeUp.initial}
+          whileInView={fadeUp.animate}
+          viewport={{ once: true }}
+          transition={fadeUp.transition}
         >
-          <div className="landingMissionText">
-            <p className="landingMissionTagline">OUR MISSION AT ATLAS:</p>
-            <p className="landingMissionTitle">streamline the entire apartment locating process for real estate agents</p>
+          <p className="landingMissionTagline">OUR MISSION AT ATLAS:</p>
+          <p className="landingMissionTitle">streamline the entire apartment locating process for real estate agents</p>
+        </motion.div>
+
+        {/* Pillars */}
+        <motion.div
+          className="landingPillars"
+          initial={fadeUp.initial}
+          whileInView={fadeUp.animate}
+          viewport={{ once: true }}
+          transition={fadeUp.transition}
+        >
+          <div className="landingPillarsHeader">
+            <span className="landingPillarsSubtitle">the three pillars of Atlas</span>
+            <p className="landingPillarsTitle">
+              <b>clients</b>, <b>lists</b>, <span style={{ fontSize: '1.25rem' }}>&</span> <b>deals</b>
+            </p>
           </div>
-          <div className="landingPillars">
-            <div className="landingPillarsHeader">
-              <span className="landingPillarsSubtitle">the three pillars of Atlas</span>
-              <p className="landingPillarsTitle">
-                <b>clients</b>, <b>lists</b>, <span style={{ fontSize: '1.25rem' }}>&</span> <b>deals</b>
-              </p>
+          <div className="landingPillarsRow">
+            <div className="landingPillar">
+              <i className="users icon" />
+              <p>At the heart of your business is your <b>client</b>. They're the reason you brew that morning coffee. We understand that finding the best deals is usually client-specific, so we've centralized everything in Atlas around each one in order to make their journeys as smooth as possible.</p>
             </div>
-            <div className="landingPillarsRow">
-              <div className="landingPillar">
-                <i className="users icon" />
-                <p>At the heart of your business is your <b>client</b>. They're the reason you brew that morning coffee. We understand that finding the best deals is usually client-specific, so we've centralized everything in Atlas around each one in order to make their journeys as smooth as possible.</p>
-              </div>
-              <div className="landingPillar">
-                <i className="list alternate icon" />
-                <p>Next is our <b>list</b>-making feature. The true workhorse of Atlas. Powerful, lean &amp; majestic. While crafting lists, you can browse properties across your region, select units, and add any important details such as specials or notes. When you're ready to send, Atlas packages everything into a unique, shareable link for your client.</p>
-              </div>
-              <div className="landingPillar">
-                <i className="chart pie icon" />
-                <p>Last but certainly not least is the <b>deal</b> tracker. Once you've found your client the perfect place, it's crucial to record their lease details and stay on top of payment deadlines. Atlas' deal-tracking tools notify you about important updates, so nothing slips through the cracks.</p>
-              </div>
+            <div className="landingPillar">
+              <i className="list alternate icon" />
+              <p>Next is our <b>list</b>-making feature. The true workhorse of Atlas. Powerful, lean &amp; majestic. While crafting lists, you can browse properties across your region, select units, and add any important details such as specials or notes. When you're ready to send, Atlas packages everything into a unique, shareable link for your client.</p>
+            </div>
+            <div className="landingPillar">
+              <i className="chart pie icon" />
+              <p>Last but certainly not least is the <b>deal</b> tracker. Once you've found your client the perfect place, it's crucial to record their lease details and stay on top of payment deadlines. Atlas' deal-tracking tools notify you about important updates, so nothing slips through the cracks.</p>
             </div>
           </div>
         </motion.div>
 
+        {/* Video */}
         <motion.div
           className="landingVideoSection"
           onMouseEnter={() => setVideoHover(true)}
           onMouseLeave={() => setVideoHover(false)}
           onTouchStart={() => setVideoHover(true)}
           onTouchEnd={() => setVideoHover(false)}
-          initial={{ opacity: 0, translateY: 40 }}
-          animate={{ opacity: 1, translateY: 0 }}
-          transition={{ duration: 0.6, delay: 0.65 }}
+          initial={fadeUp.initial}
+          whileInView={fadeUp.animate}
+          viewport={{ once: true }}
+          transition={fadeUp.transition}
         >
           <div className="landingVideoContainer">
             <h1
@@ -93,7 +111,14 @@ function Landing({ access, refresh }) {
           </div>
         </motion.div>
 
-        <div className="landingDashSection">
+        {/* Dashboard section */}
+        <motion.div
+          className="landingDashSection"
+          initial={fadeUp.initial}
+          whileInView={fadeUp.animate}
+          viewport={{ once: true }}
+          transition={fadeUp.transition}
+        >
           <div className="landingSectionHeader">
             <div className="landingSectionLabel">
               <span className="landingSectionLabelSub">A GLIMPSE AT THE</span>
@@ -106,14 +131,22 @@ function Landing({ access, refresh }) {
               <p>And we're currently developing a comprehensive stats feature (exciting, right?) to track everything from most-recommended properties to most-leased, and beyond!</p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="landingCta">
+        {/* CTA */}
+        <motion.div
+          className="landingCta"
+          initial={fadeUp.initial}
+          whileInView={fadeUp.animate}
+          viewport={{ once: true }}
+          transition={fadeUp.transition}
+        >
           <h1 className="landingCtaTitle">ready to JOIN ?</h1>
           <Link to={"/signup/"}>
             <Button className="button">LET'S GO</Button>
           </Link>
-        </div>
+        </motion.div>
+
       </div>
     </div>
   );

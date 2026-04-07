@@ -1,92 +1,5 @@
 /*          LISTS COMPONENTS          */
 
-.listsPage {
-    overflow-y: auto;
-    width: 100%;
-    min-height: 44rem;
-}
-
-.listsList {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto;
-    min-height: 24rem;
-    max-height: 100%;
-    text-align: left;
-    margin-top: 0.75rem;
-    margin-bottom: 2.5rem;
-}
-
-.listsTable {
-    width: 91.666%;
-}
-
-.listsThead {
-    color: white;
-    background-color: #1f2124;
-    font-size: 0.75rem;
-    text-align: center;
-}
-
-.listsTh {
-    padding: 0.5rem;
-}
-
-.listsThFirst {
-    padding: 0.5rem;
-    border-radius: 0.375rem 0 0 0.375rem;
-}
-
-.listsThLast {
-    padding: 0.5rem;
-    border-radius: 0 0.375rem 0.375rem 0;
-}
-
-.listsRow {
-    font-weight: bold;
-    color: black;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.15s, color 0.15s;
-}
-
-.listsRow:nth-child(odd) {
-    background-color: white;
-}
-
-.listsRow:nth-child(even) {
-    background-color: #f3f4f6;
-}
-
-.listsRow:hover {
-    color: white;
-    background-color: #6b7280;
-}
-
-.listsTd {
-    padding: 0.5rem;
-}
-
-.listsTdSm {
-    padding: 0.5rem;
-    font-size: 0.7rem;
-}
-
-.listsAddRow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-}
-
-/* DeleteList */
-.deleteListPopup {
-    color: #b91c1c !important;
-    font-weight: 900 !important;
-    text-align: center;
-}
-
 /* NewList */
 .newListModal {
     width: 91.666% !important;
@@ -264,24 +177,21 @@
     color: #374151;
 }
 
-.listDetailRowEven {
-    background-color: #232425;
+/* Single row class — alternating handled by nth-child */
+.listDetailRow {
     color: white;
     transition: background-color 0.15s, color 0.15s;
 }
 
-.listDetailRowEven:hover {
-    background-color: #f3f4f6;
-    color: black;
-}
-
-.listDetailRowOdd {
+.listDetailRow:nth-child(odd) {
     background-color: #26282B;
-    color: white;
-    transition: background-color 0.15s, color 0.15s;
 }
 
-.listDetailRowOdd:hover {
+.listDetailRow:nth-child(even) {
+    background-color: #232425;
+}
+
+.listDetailRow:hover {
     background-color: #f3f4f6;
     color: black;
 }
@@ -304,9 +214,6 @@
 }
 
 @media (min-width: 640px) {
-    .listsTdSm {
-        font-size: 1rem;
-    }
     .newListBottomBar {
         flex-direction: row;
         align-items: flex-start;

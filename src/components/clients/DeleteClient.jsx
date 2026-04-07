@@ -33,20 +33,20 @@ function DeleteClient({ delete_client, load_clients, client, handleCloseModal, u
           open
           position="top center"
           size="tiny"
-          className='deleteClientPopup'
+          className='deletePopup'
           trigger={
             <Button
               type="submit"
               color="red"
               onClick={() => handleDelete(client.id, user.id)}
             >
-              <i className="trash alternate icon" style={{ marginRight: '-0.25rem' }}></i>
+              <i className="trash alternate icon iconNarrow"></i>
             </Button>
           }
         />
       ) : (
         <Button type="submit" color="red" onClick={() => handleDeleteConfirm(client.id)}>
-          <i className="trash alternate icon" style={{ marginRight: '-0.25rem' }}></i>
+          <i className="trash alternate icon iconNarrow"></i>
         </Button>
       )}
     </>

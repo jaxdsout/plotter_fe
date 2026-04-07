@@ -51,7 +51,8 @@ function NewList({ new_option, reset_reorder_mode, property, list, load_list, lo
 
   const handleEditList = async () => {
     await reset_send_mode();
-    set_list_mode()
+    await load_list(list.id);
+    set_list_mode();
   }
 
   const handleCopy = () => {
@@ -97,7 +98,7 @@ function NewList({ new_option, reset_reorder_mode, property, list, load_list, lo
 
   return (
     <>
-      <div className="listsAddRow">
+      <div className="dataAddRow">
         <Button onClick={handleOpenModal} className="button">+</Button>
       </div>
       <div>
@@ -194,7 +195,7 @@ function NewList({ new_option, reset_reorder_mode, property, list, load_list, lo
                   {!isReorderMode && (
                     <>
                       <div>
-                        <Button size='tiny' className="button" onClick={handleOpenResetModal}><i className="long arrow alternate left icon" />BACK</Button>
+                        <Button size='tiny' className="optionControlsBtn optionBackBtn" onClick={handleOpenResetModal}><i className="long arrow alternate left icon" />BACK</Button>
                       </div>
                       <div className="newListBottomLeft">
                         <OptionControls />

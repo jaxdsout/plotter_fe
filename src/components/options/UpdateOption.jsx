@@ -44,11 +44,11 @@ function UpdateOption({ option, list, update_option, load_list }) {
                     <Form onSubmit={handleSubmit} autoComplete="off">
                         <FormField>
                             <label htmlFor='price'>Price:</label>
-                            <div className="updateOptionFieldWrapper">
-                                <span className="updateOptionPrefix">$</span>
+                            <div className="inputWrapper">
+                                <span className="inputPrefix">$</span>
                                 <input
                                     type='number'
-                                    className="updateOptionIndent"
+                                    className="inputIndent"
                                     name='price'
                                     value={price || option.price}
                                     onChange={handleChange}

@@ -77,25 +77,25 @@ function AllClients({ clients, isListMode, isDealMode, reset_list_mode, reset_ed
     };
 
     return (
-        <div className="clientsPage">
-            <div className="clientsList">
+        <div className="dataPage">
+            <div className="dataList">
                 {!isLoaded ? (
                     <Loader inverted active />
                 ) : sortedClients.length > 0 ? (
-                    <table className="clientsTable">
-                        <thead className="clientsThead">
+                    <table className="dataTable">
+                        <thead className="dataThead">
                             <tr>
-                                <th className="clientsThFirst">Client</th>
+                                <th className="dataThFirst">Client</th>
                             </tr>
                         </thead>
                         <tbody>
                             {sortedClients.map((client) => (
                                 <tr
                                     key={client.id}
-                                    className="clientsRow"
+                                    className="dataRow"
                                     onClick={() => handleOpenModal(client.id)}
                                 >
-                                    <td className="clientsTd">{client.first_name} {client.last_name}</td>
+                                    <td className="dataTd">{client.first_name} {client.last_name}</td>
                                 </tr>
                             ))}
                         </tbody>
