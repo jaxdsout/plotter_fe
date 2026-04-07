@@ -1,0 +1,300 @@
+/*          DEALS COMPONENTS          */
+
+.dealsPage {
+    width: 100%;
+    overflow-y: auto;
+    min-height: 44rem;
+}
+
+.dealsList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    min-height: 24rem;
+    max-height: 100%;
+    text-align: left;
+    margin-top: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.dealsTable {
+    width: 91.666%;
+}
+
+.dealsThead {
+    color: white;
+    background-color: #1f2124;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.dealsTh {
+    padding: 0.5rem;
+}
+
+.dealsThFirst {
+    padding: 0.5rem;
+    border-radius: 0.375rem 0 0 0.375rem;
+}
+
+.dealsThLast {
+    padding: 0.5rem;
+    border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.dealsRow {
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.dealsRow:nth-child(odd) {
+    background-color: white;
+}
+
+.dealsRow:nth-child(even) {
+    background-color: #f3f4f6;
+}
+
+.dealsRow:hover {
+    color: white;
+    background-color: #6b7280;
+}
+
+.dealsTd {
+    padding: 0.5rem;
+}
+
+.dealsTdSm {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+}
+
+.dealsAddRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+/* NewDeal */
+.dealModalHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.dealSearchRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dealSearchCol {
+    padding: 0.75rem;
+    text-align: center;
+}
+
+.dealSelectedRow {
+    margin-top: 1.25rem;
+}
+
+/* Input with currency/percent prefix or suffix */
+.dealInputWrapper {
+    position: relative;
+}
+
+.dealInputPrefix {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.dealInputSuffix {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-right: 1.75rem;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.dealInputSuffixMos {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-right: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.dealInputIndent {
+    text-indent: 1rem;
+}
+
+.dealFlatFeeLabel {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: -0.5rem;
+}
+
+.dealFlatFeeToggle {
+    padding-left: 0.5rem;
+}
+
+.dealSubmitRow {
+    display: flex;
+    justify-content: center;
+}
+
+.dealCloseRow {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-bottom: 0.75rem;
+}
+
+/* DealDetail */
+.dealDetailWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.dealDetailHeader {
+    text-align: center;
+}
+
+.dealDetailColumns {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.dealDetailCol {
+    display: flex;
+    flex-direction: column;
+}
+
+.dealDetailLeft {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+    width: 150px;
+}
+
+.dealDetailStat {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.dealDetailStatNowrap {
+    white-space: nowrap;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.dealDetailPaid {
+    color: #166534 !important;
+    font-weight: 900 !important;
+}
+
+/* DeleteDeal */
+.dealDeletePopup {
+    color: #b91c1c !important;
+    font-weight: 900 !important;
+}
+
+/* EditDeal */
+.editDealColumns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.editDealCol {
+    padding: 0.5rem;
+}
+
+.editDealFieldRow {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.editDealReadonly {
+    background-color: #eeeeee !important;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.editDealWide {
+    min-width: 180px;
+}
+
+.editDealTotal {
+    background-color: #474747 !important;
+    color: white !important;
+    font-weight: bold !important;
+    text-indent: 1rem;
+}
+
+.editDealTotalPrefix {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+@media (min-width: 640px) {
+    .dealsTdSm {
+        font-size: 1rem;
+    }
+    .dealDetailColumns {
+        flex-direction: row;
+    }
+    .dealDetailLeft {
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .dealSearchRow {
+        flex-direction: row;
+    }
+    .editDealColumns {
+        flex-direction: row;
+    }
+}

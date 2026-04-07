@@ -1,0 +1,155 @@
+/*          OPTIONS COMPONENTS          */
+
+/* OptionList */
+.optionListWrapper {
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.optionListGroup {
+    background-color: #dbdbdb;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07));
+}
+
+.optionListItem {
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+    list-style: none;
+}
+
+.optionListItem:hover {
+    background-color: white;
+}
+
+.optionListEmpty {
+    text-align: center;
+}
+
+/* OptionDetail */
+.optionDetailWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.optionDetailRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.optionDetailLeft {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.optionPropName {
+    font-weight: 900;
+}
+
+.optionDetailRight {
+    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.optionReorderRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.optionActionBtn {
+    padding: 0.75rem;
+    background-color: #2d2d2e;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.optionActionBtn:hover {
+    background-color: #dc2626;
+}
+
+.optionDeleteBtnConfirm {
+    padding: 0.75rem;
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.optionDeleteBtnConfirm:hover {
+    background-color: #b91c1c;
+}
+
+.optionDeletePopup {
+    color: #b91c1c !important;
+    font-weight: 900 !important;
+}
+
+.optionIconNarrow {
+    margin-right: -0.25rem !important;
+    margin-left: -0.25rem !important;
+}
+
+/* UpdateOption */
+.updateOptionBtn {
+    padding: 0.75rem;
+    background-color: #1f2124;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.updateOptionBtn:hover {
+    color: #e1e1e1;
+    background-color: #3a3a3a;
+}
+
+.updateOptionSubmitRow {
+    display: flex;
+    justify-content: center;
+}
+
+.updateOptionFieldWrapper {
+    position: relative;
+}
+
+.updateOptionPrefix {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.updateOptionIndent {
+    text-indent: 1rem;
+}
+
+/* OptionControls */
+.optionControlsBtn {
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
+    white-space: nowrap;
+}

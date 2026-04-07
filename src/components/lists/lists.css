@@ -1,0 +1,334 @@
+/*          LISTS COMPONENTS          */
+
+.listsPage {
+    overflow-y: auto;
+    width: 100%;
+    min-height: 44rem;
+}
+
+.listsList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    min-height: 24rem;
+    max-height: 100%;
+    text-align: left;
+    margin-top: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.listsTable {
+    width: 91.666%;
+}
+
+.listsThead {
+    color: white;
+    background-color: #1f2124;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.listsTh {
+    padding: 0.5rem;
+}
+
+.listsThFirst {
+    padding: 0.5rem;
+    border-radius: 0.375rem 0 0 0.375rem;
+}
+
+.listsThLast {
+    padding: 0.5rem;
+    border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.listsRow {
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.listsRow:nth-child(odd) {
+    background-color: white;
+}
+
+.listsRow:nth-child(even) {
+    background-color: #f3f4f6;
+}
+
+.listsRow:hover {
+    color: white;
+    background-color: #6b7280;
+}
+
+.listsTd {
+    padding: 0.5rem;
+}
+
+.listsTdSm {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+}
+
+.listsAddRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+/* DeleteList */
+.deleteListPopup {
+    color: #b91c1c !important;
+    font-weight: 900 !important;
+    text-align: center;
+}
+
+/* NewList */
+.newListModal {
+    width: 91.666% !important;
+}
+
+.newListBody {
+    background-color: #ededed;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    padding-top: 2.5rem;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
+}
+
+.newListColumns {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.newListLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 1.25rem;
+}
+
+.newListSearchBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #dbdbdb;
+    border-radius: 0.75rem;
+    padding: 1rem;
+}
+
+.newListInput {
+    width: 20rem !important;
+    border: none !important;
+    padding-right: 1rem;
+}
+
+.newListRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1.25rem;
+}
+
+.newListMapArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 20rem;
+}
+
+.newListActionsTop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.newListBottomBar {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.25rem;
+}
+
+.newListBottomLeft {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1.5rem;
+}
+
+.newListBottomRight {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 1.25rem;
+}
+
+/* ListDetail */
+.listDetailWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.listDetailHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.listDetailLinkRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.listDetailShare {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listDetailProps {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.listDetailPropControls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 0.25rem;
+}
+
+.listDetailPropName {
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.listDetailPropNote {
+    padding-right: 0.75rem;
+}
+
+.listDetailSaveRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1.25rem;
+}
+
+.listDetailSaveLabel {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.listDetailTableWrap {
+    width: 91.666%;
+    display: flex;
+    justify-content: center;
+}
+
+.listDetailTable {
+    table-layout: auto;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+}
+
+.listDetailThead {
+    background-color: #d9dadb;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+}
+
+.listDetailTh {
+    padding: 0.5rem;
+    text-align: left;
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: #374151;
+}
+
+.listDetailRowEven {
+    background-color: #232425;
+    color: white;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.listDetailRowEven:hover {
+    background-color: #f3f4f6;
+    color: black;
+}
+
+.listDetailRowOdd {
+    background-color: #26282B;
+    color: white;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.listDetailRowOdd:hover {
+    background-color: #f3f4f6;
+    color: black;
+}
+
+.listDetailTd {
+    padding: 0.5rem;
+    white-space: nowrap;
+    font-size: 0.875rem;
+}
+
+.listDetailTdXs {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.listDetailTdCenter {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .listsTdSm {
+        font-size: 1rem;
+    }
+    .newListBottomBar {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .newListBottomLeft {
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .newListModal {
+        width: 800px !important;
+    }
+    .newListColumns {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .newListActionsTop {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .listDetailTableWrap {
+        width: 100%;
+    }
+}

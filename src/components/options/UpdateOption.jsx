@@ -2,6 +2,7 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import { Button, Form, FormField, Modal } from "semantic-ui-react";
 import { load_list, update_option } from "../../store/actions/listmaker";
+import "./options.css";
 
 function UpdateOption({ option, list, update_option, load_list }) {
     const [showModal, setShowModal] = useState(false);
@@ -21,7 +22,6 @@ function UpdateOption({ option, list, update_option, load_list }) {
 
     const handleChange = (e) => setOptionForm({ ...optionForm, [e.target.name]: e.target.value });
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         await update_option(optionID, price, unit_number, layout, sq_ft, available, notes, property, listID);
@@ -34,23 +34,21 @@ function UpdateOption({ option, list, update_option, load_list }) {
 
     return (
         <>
-            <div>
-                <button onClick={handleOpenModal} className="p-3 bg-[#1f2124] text-white rounded-lg mr-2 hover:text-[#90B8F8]">
-                    <i className="edit icon !-mr-1 !ml-0"></i>
-                </button>
-            </div>
+            <button onClick={handleOpenModal} className="updateOptionBtn">
+                <i className="edit icon" style={{ marginRight: '-0.25rem', marginLeft: 0 }}></i>
+            </button>
 
-            <Modal open={showModal} onClose={handleCloseModal} className="!w-5/6 sm:!w-[500px]">
-                <Modal.Header className="text-center">Update Option: {option.prop_name}</Modal.Header>
-                <Modal.Content className="bg-dark-subtle">
-                    <Form onSubmit={handleSubmit} autocomplete="off">
+            <Modal open={showModal} onClose={handleCloseModal} className="modalSm">
+                <Modal.Header style={{ textAlign: 'center' }}>Update Option: {option.prop_name}</Modal.Header>
+                <Modal.Content>
+                    <Form onSubmit={handleSubmit} autoComplete="off">
                         <FormField>
-                            <label className="noto-sans" htmlFor='price'>Price:</label>
-                            <div className="relative">
-                                <span className="absolute inset-y-0 left-0 pl-4 flex items-center text-[1rem] font-bold pointer-events-none">$</span>
+                            <label htmlFor='price'>Price:</label>
+                            <div className="updateOptionFieldWrapper">
+                                <span className="updateOptionPrefix">$</span>
                                 <input
                                     type='number'
-                                    className="indent-4"
+                                    className="updateOptionIndent"
                                     name='price'
                                     value={price || option.price}
                                     onChange={handleChange}
@@ -58,7 +56,7 @@ function UpdateOption({ option, list, update_option, load_list }) {
                             </div>
                         </FormField>
                         <FormField>
-                            <label className="noto-sans" htmlFor='unit_number'>Unit Number:</label>
+                            <label htmlFor='unit_number'>Unit Number:</label>
                             <input
                                 type='text'
                                 name='unit_number'
@@ -67,17 +65,16 @@ function UpdateOption({ option, list, update_option, load_list }) {
                             />
                         </FormField>
                         <FormField>
-                            <label className="noto-sans" htmlFor='layout'>Layout:</label>
+                            <label htmlFor='layout'>Layout:</label>
                             <input
                                 type='text'
                                 name='layout'
                                 value={layout}
                                 onChange={handleChange}
-
                             />
                         </FormField>
                         <FormField>
-                            <label className="noto-sans" htmlFor='sq_ft'>Sq Ft:</label>
+                            <label htmlFor='sq_ft'>Sq Ft:</label>
                             <input
                                 type='text'
                                 name='sq_ft'
@@ -86,17 +83,16 @@ function UpdateOption({ option, list, update_option, load_list }) {
                             />
                         </FormField>
                         <FormField>
-                            <label className="noto-sans" htmlFor='available'>Available:</label>
+                            <label htmlFor='available'>Available:</label>
                             <input
                                 type='date'
                                 name='available'
                                 value={available}
                                 onChange={handleChange}
-
                             />
                         </FormField>
                         <FormField>
-                            <label className="noto-sans" htmlFor='notes'>Notes/Specials:</label>
+                            <label htmlFor='notes'>Notes/Specials:</label>
                             <input
                                 type='text'
                                 name='notes'
@@ -104,14 +100,13 @@ function UpdateOption({ option, list, update_option, load_list }) {
                                 onChange={handleChange}
                             />
                         </FormField>
-                        <div className="flex justify-center">
-                            <Button className="drop-shadow-sm" type="submit" color="green">UPDATE OPTION</Button>
-
+                        <div className="updateOptionSubmitRow">
+                            <Button type="submit" color="green">UPDATE OPTION</Button>
                         </div>
                     </Form>
                 </Modal.Content>
                 <Modal.Actions>
-                    <Button className="drop-shadow-sm" onClick={handleCloseModal} color="red">CANCEL</Button>
+                    <Button onClick={handleCloseModal} color="red">CANCEL</Button>
                 </Modal.Actions>
             </Modal>
         </>

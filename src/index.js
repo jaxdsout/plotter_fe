@@ -7,15 +7,14 @@ import { persistor, store } from './store/index';
 import './styles.css';
 
 
-import Activate from './pages/Activate';
-import ClientList from './pages/ClientList';
-import ConfirmPassword from './pages/ConfirmPassword';
-import Dashboard from './pages/Dashboard';
-import Landing from './pages/Landing';
-import Login from './pages/Login';
-import NetEffective from './pages/NetEffective';
-import ResetPassword from './pages/ResetPassword';
-import SignUpForm from './pages/SignUp';
+import Activate from "./pages/auth/Activate";
+import ConfirmPassword from './pages/auth/ConfirmPassword';
+import Login from './pages/auth/Login';
+import ResetPassword from './pages/auth/ResetPassword';
+import SignUpForm from './pages/auth/SignUp';
+import ClientList from './pages/clientList/ClientList';
+import Dashboard from './pages/dashboard/Dashboard';
+import Landing from './pages/home/Landing';
 
 import Footer from './components/partials/Footer';
 import Navbar from './components/partials/Navbar';
@@ -36,7 +35,6 @@ root.render(
             <Route path="/verify/:uid/:token" element={<Activate />} />
             <Route path="/login/" element={<Login />} />
             <Route path="/list/:uuid/" element={<ClientList />} />
-            <Route path="/net-effective" element={<NetEffective />} />
             <Route path="/dashboard/" element={<Dashboard />}>
               <Route path="home" element={<Dashboard />} />
               <Route path="clients" element={<Dashboard />} />

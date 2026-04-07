@@ -1,0 +1,249 @@
+/*          PROPS / SEARCH COMPONENTS          */
+
+.searchPage {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 49rem;
+}
+
+.searchControls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    margin-top: 1rem;
+}
+
+.searchReset {
+    margin-left: 1.25rem;
+    position: absolute;
+    left: 1.25rem;
+}
+
+.searchTabs {
+    background-color: #d1d5db;
+    padding: 0.25rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: 0.375rem;
+}
+
+.searchTabBtn {
+    border: 2px solid black !important;
+    text-align: left;
+    margin: 0 0.125rem !important;
+}
+
+.searchContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: 24rem;
+}
+
+/* PropList */
+.propList {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    text-align: left;
+    margin-top: 0.75rem;
+    margin-bottom: 2.5rem;
+    width: 100%;
+    padding: 0.75rem;
+}
+
+.propTable {
+    width: 100%;
+}
+
+.propThead {
+    position: sticky;
+    top: 0;
+    color: white;
+    background-color: #1f2124;
+    font-size: 0.75rem;
+}
+
+.propThFirst {
+    text-align: left;
+    padding: 0.5rem;
+    border-radius: 0.375rem 0 0 0.375rem;
+}
+
+.propTh {
+    text-align: left;
+    padding: 0.5rem;
+}
+
+.propThLast {
+    text-align: left;
+    padding: 0.5rem;
+    border-radius: 0 0.375rem 0.375rem 0;
+    white-space: normal;
+}
+
+.propRow {
+    font-weight: bold;
+    color: black;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.propRow:nth-child(odd) {
+    background-color: white;
+}
+
+.propRow:nth-child(even) {
+    background-color: #f3f4f6;
+}
+
+.propRow:hover {
+    color: white;
+    background-color: #6b7280;
+}
+
+.propTdName {
+    padding: 0.5rem;
+    padding-right: 3rem;
+}
+
+.propNameCell {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.propNameText {
+    font-size: 0.875rem;
+}
+
+.propAddress {
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+.propTdSm {
+    padding: 0.25rem;
+    font-size: 0.7rem;
+}
+
+.propEmpty {
+    text-align: center;
+    color: white;
+}
+
+/* PropMap */
+.propMapContainer {
+    width: 100%;
+    height: 64rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+}
+
+/* PropDetail */
+.propDetailWrapper {
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.propDetailInfo {
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    max-width: 17rem;
+}
+
+.propDetailLabel {
+    color: #6b7280;
+    white-space: nowrap;
+}
+
+.propDetailCommission {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.propCommTableWrap {
+    border: 2px solid #1f2124;
+    border-radius: 0.375rem 0.375rem 0 0;
+}
+
+.propCommTable {
+    width: 100%;
+}
+
+.propCommThead {
+    color: white;
+    background-color: #1f2124;
+    font-size: 0.75rem;
+}
+
+.propCommTh {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+}
+
+.propCommRow {
+    font-weight: bold;
+    color: black;
+    background-color: #f3f4f6;
+    text-align: center;
+}
+
+.propCommTd {
+    padding: 0.25rem;
+    font-size: 0.7rem;
+}
+
+.propDetailNote {
+    font-size: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+/* PropDetail */
+.propDetailImg {
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    max-width: 17rem;
+}
+
+/* AllProps Modal */
+.propModalHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.propInfoIcon {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-left: 0.5rem;
+}
+
+.propInfoPopup {
+    font-size: 0.75rem !important;
+}
+
+@media (min-width: 640px) {
+    .propTdSm {
+        font-size: 1rem;
+    }
+    .propThLast {
+        white-space: nowrap;
+    }
+}

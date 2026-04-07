@@ -1,0 +1,159 @@
+/*          PUBLIC CLIENT LIST PAGE          */
+
+.publicListPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.publicListHeader {
+    width: 91.666%;
+    max-width: 900px;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    background-color: #26282B;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06), 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
+}
+
+.publicListClientName {
+    text-align: center;
+    color: white;
+}
+
+.publicListContent {
+    width: 91.666%;
+    max-width: 900px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    margin-top: 1.25rem;
+    background-color: white;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06), 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
+}
+
+.publicListColumns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.publicListItem {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    margin-top: 1.25rem;
+    list-style: none;
+}
+
+.publicListCard {
+    padding: 1.25rem;
+    font-weight: bold;
+    color: white;
+    width: 23rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.375rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06), 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.15s, color 0.15s;
+    background-color: #26282B;
+}
+
+.publicListCard:hover {
+    color: black;
+    background-color: #f3f4f6;
+}
+
+.publicListCardTop {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.publicListPropName {
+    font-size: 1.25rem;
+}
+
+.publicListIcon {
+    font-size: 1.25rem !important;
+}
+
+.publicListCardPrice {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: -1rem;
+    margin-bottom: 0.75rem;
+}
+
+.publicListPrice {
+    font-size: 1.25rem;
+}
+
+.publicListCardDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.publicListCardInfo {
+    font-weight: 300;
+}
+
+.publicListDetailLine {
+    margin-bottom: -0.25rem;
+}
+
+.publicListDetailLineLast {
+    margin-bottom: 0;
+}
+
+.publicListNoteIcon {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 0.5rem;
+}
+
+.publicListFooter {
+    width: 91.666%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    margin-bottom: 2.5rem;
+    background-color: white;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06), 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
+}
+
+.publicListAvatar {
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+}
+
+.publicListAgentInfo {
+    text-align: left;
+    margin-left: 1.5rem;
+}
+
+.publicListAgentDate {
+    color: black;
+    margin-top: -0.5rem;
+}
+
+@media (min-width: 1024px) {
+    .publicListColumns {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .publicListItem {
+        padding-right: 0;
+        margin-top: 0;
+    }
+}

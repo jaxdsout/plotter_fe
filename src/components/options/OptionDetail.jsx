@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Divider, List, Popup } from "semantic-ui-react";
 import { delete_option, load_list } from "../../store/actions/listmaker";
 import UpdateOption from "./UpdateOption";
+import "./options.css";
 
 function OptionDetail({ option, isReorderMode, delete_option, load_list, list }) {
     const [deleteConfirm, setDeleteConfirm] = useState(null);
@@ -16,7 +17,6 @@ function OptionDetail({ option, isReorderMode, delete_option, load_list, list })
         }).replace(',', '/');
     };
 
-
     const handleDeleteConfirm = (optionID) => {
         setDeleteConfirm(optionID);
     };
@@ -27,7 +27,6 @@ function OptionDetail({ option, isReorderMode, delete_option, load_list, list })
         setDeleteConfirm(null);
     };
 
-
     useEffect(() => {
         if (deleteConfirm) {
             const timer = setTimeout(() => setDeleteConfirm(null), 7000);
@@ -36,14 +35,13 @@ function OptionDetail({ option, isReorderMode, delete_option, load_list, list })
     }, [deleteConfirm]);
 
     return (
-        <div key={option.id} className="flex flex-col justify-center items-center">
+        <div key={option.id} className="optionDetailWrapper">
             {!isReorderMode ? (
-                <div className="flex flex-row items-center justify-between w-full">
-                    <div className="flex flex-row items-center justfify-between">
-
+                <div className="optionDetailRow">
+                    <div className="optionDetailLeft">
                         <Popup
                             position="bottom left"
-                            trigger={<i className="ellipsis horizontal icon !mb-1 !mr-2"></i>}
+                            trigger={<i className="ellipsis horizontal icon" style={{ marginBottom: '0.25rem', marginRight: '0.5rem' }}></i>}
                             content={
                                 <>
                                     {option.price === null ? (<p>No details added yet.</p>) : (
@@ -58,9 +56,9 @@ function OptionDetail({ option, isReorderMode, delete_option, load_list, list })
                                 </>
                             }
                         />
-                        <p className="font-black">{option.prop_name}</p>
+                        <p className="optionPropName">{option.prop_name}</p>
                     </div>
-                    <div className="ml-6 flex flex-row items-center justify-center">
+                    <div className="optionDetailRight">
                         <UpdateOption option={option} />
 
                         {deleteConfirm === option.id ? (
@@ -69,35 +67,31 @@ function OptionDetail({ option, isReorderMode, delete_option, load_list, list })
                                 open
                                 position="left center"
                                 size="tiny"
-                                className='!text-red-700 !font-black'
+                                className="optionDeletePopup"
                                 trigger={
                                     <button
                                         type="submit"
-                                        className="p-3 bg-red-600 text-white rounded-lg mr-2 hover:bg-red-800"
+                                        className="optionDeleteBtnConfirm"
                                         onClick={() => handleDelete(option.id, list)}
                                     >
-                                        <i className="trash alternate icon !-mr-1 !-ml-1"></i>
+                                        <i className="trash alternate icon" style={{ marginRight: '-0.25rem', marginLeft: '-0.25rem' }}></i>
                                     </button>
                                 }
                             />
                         ) : (
-                            <div>
-                                <button onClick={() => handleDeleteConfirm(option.id)} className="p-3 bg-[#2d2d2e] text-white rounded-lg mr-2 hover:bg-red-600">
-                                    <i className="trash alternate icon !-mr-1 !-ml-1"></i>
-                                </button>
-                            </div>
+                            <button onClick={() => handleDeleteConfirm(option.id)} className="optionActionBtn">
+                                <i className="trash alternate icon" style={{ marginRight: '-0.25rem', marginLeft: '-0.25rem' }}></i>
+                            </button>
                         )}
-
                     </div>
                 </div>
-
             ) : (
-                <div className="flex flex-row items-center justify-center">
-                    <p className="font-black">{option.prop_name}</p>
+                <div className="optionReorderRow">
+                    <p className="optionPropName">{option.prop_name}</p>
                 </div>
             )}
 
-            <Divider className="w-full !mb-2" />
+            <Divider style={{ width: '100%', marginBottom: '0.5rem' }} />
         </div>
     )
 }

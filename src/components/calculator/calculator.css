@@ -1,0 +1,117 @@
+/*          CALCULATOR COMPONENT          */
+
+.calculatorWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 0.5rem;
+    color: white;
+    background-color: #2d2d2e;
+    padding-bottom: 0.75rem;
+    min-width: 280px;
+}
+
+.calculatorHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0.75rem 1rem 0.5rem;
+    background-color: #1f2124;
+    border-radius: 0.5rem 0.5rem 0 0;
+    margin-bottom: 0.5rem;
+}
+
+.calculatorHeader h4 {
+    color: white;
+    text-align: center;
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.calculatorGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0 0.75rem;
+    width: 100%;
+}
+
+.calculatorFullWidth {
+    padding: 0 0.75rem;
+    width: 100%;
+    margin-top: 0.25rem;
+}
+
+.calculatorLabel {
+    color: #d1d5db !important;
+    font-size: 0.75rem !important;
+    margin-bottom: 0.2rem !important;
+}
+
+.calculatorFieldWrapper {
+    position: relative;
+}
+
+.calculatorInput {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    padding: 0.4rem 0.5rem !important;
+    font-size: 0.875rem !important;
+    height: 2rem !important;
+}
+
+.calculatorInputIndent {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    padding: 0.4rem 0.5rem 0.4rem 1.75rem !important;
+    font-size: 0.875rem !important;
+    height: 2rem !important;
+}
+
+.calculatorResultInput {
+    background-color: rgba(255, 255, 255, 0.18) !important;
+    color: white !important;
+    padding: 0.4rem 0.5rem 0.4rem 1.75rem !important;
+    font-size: 0.875rem !important;
+    height: 2rem !important;
+    font-weight: 700 !important;
+    border: 1px solid rgba(255,255,255,0.3) !important;
+}
+
+.calculatorPrefix {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: #d1d5db;
+    pointer-events: none;
+}
+
+.calculatorSuffix {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #9ca3af;
+    pointer-events: none;
+}
+
+.calculatorResetRow {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+}

@@ -1,8 +1,9 @@
-import { connect } from "react-redux";
 import { useState } from "react";
+import { connect } from "react-redux";
+import { Button } from "semantic-ui-react";
 import { set_reorder_mode, set_send_mode, reset_list_mode, reset_reorder_mode, set_edit_list } from "../../store/actions/ui";
 import { clear_options, load_list, update_list } from "../../store/actions/listmaker";
-import { Button } from "semantic-ui-react";
+import "./options.css";
 
 function OptionControls({ clear_options, list, load_list, reset_reorder_mode, set_reorder_mode, isEditMode, isReorderMode, isListMode, reset_list_mode, set_send_mode, update_list, user, client, options }) {
 
@@ -40,7 +41,6 @@ function OptionControls({ clear_options, list, load_list, reset_reorder_mode, se
         }
     }
 
-
     const handleSendList = async (e) => {
         e.preventDefault();
         await update_list(user.id, client.id, list, options);
@@ -49,11 +49,10 @@ function OptionControls({ clear_options, list, load_list, reset_reorder_mode, se
     }
 
     if (isReorderMode) return (
-
         <Button
-            className="drop-shadow-sm hover:!bg-[#3a528a]"
+            className="optionControlsBtn"
             onClick={handleReorder}
-            style={{ backgroundColor: isReorderMode ? "green" : "#4d6cb2", color: "white" }}
+            style={{ backgroundColor: isReorderMode ? "#3a3a3a" : "#4c4c47", color: "white" }}
             size='tiny'
         >
             {isReorderMode ?
@@ -71,18 +70,18 @@ function OptionControls({ clear_options, list, load_list, reset_reorder_mode, se
     if (isListMode) return (
         <>
             {clearConfirm ? (
-                <Button className="drop-shadow-sm" color='red' size='tiny' onClick={(() => handleClearOptions(list.id))}>
+                <Button className="optionControlsBtn" color='red' size='tiny' onClick={(() => handleClearOptions(list.id))}>
                     <i className="check circle icon" />CONFIRM CLEAR
                 </Button>
             ) : (
-                <Button className="drop-shadow-sm text-nowrap hover:!bg-red-500" color='black' size='tiny' onClick={(() => handleConfirmClear())}>
+                <Button className="optionControlsBtn" color='black' size='tiny' onClick={(() => handleConfirmClear())}>
                     <i className="exclamation triangle icon" />CLEAR LIST
                 </Button>
             )}
             <Button
-                className="drop-shadow-sm hover:!bg-[#3a528a]"
+                className="optionControlsBtn"
                 onClick={handleReorder}
-                style={{ backgroundColor: isReorderMode ? "green" : "#4d6cb2", color: "white" }}
+                style={{ backgroundColor: isReorderMode ? "#3a3a3a" : "#4c4c47", color: "white" }}
                 size='tiny'
             >
                 {isReorderMode ?
@@ -98,19 +97,16 @@ function OptionControls({ clear_options, list, load_list, reset_reorder_mode, se
             {isListMode && (
                 <>
                     {isEditMode ? (
-                        <Button className="drop-shadow-sm" color="green" type="submit" size='tiny' onClick={handleSaveList}>
+                        <Button className="optionControlsBtn" color="green" type="submit" size='tiny' onClick={handleSaveList}>
                             <i className="check circle icon" />SAVE LIST
                         </Button>
                     ) : (
-                        <Button className="drop-shadow text-nowrap" type='submit' color='green' size='tiny' onClick={handleSendList}>
+                        <Button className="optionControlsBtn" type='submit' color='green' size='tiny' onClick={handleSendList}>
                             <i className="check circle icon" />SEND LIST
                         </Button>
                     )}
                 </>
             )}
-
-
-
         </>
     )
 }
@@ -126,7 +122,6 @@ const mapStateToProps = state => ({
     isSendMode: state.ui.isSendMode,
     isListMode: state.ui.isListMode,
     isEditMode: state.ui.isEditMode
-
 });
 
 export default connect(mapStateToProps, { clear_options, load_list, set_reorder_mode, update_list, set_send_mode, reset_list_mode, reset_reorder_mode, set_edit_list })(OptionControls);

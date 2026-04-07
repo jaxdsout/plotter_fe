@@ -1,10 +1,10 @@
-import { Form, FormField, Button, Icon, Loader } from 'semantic-ui-react';
+import { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Form, FormField, Button, Icon, Loader, Divider } from 'semantic-ui-react';
 import { update_profile, update_avatar } from '../../store/actions/agent';
 import { load_user } from '../../store/actions/auth';
-import { connect } from 'react-redux';
-import { useState, useEffect } from 'react';
-import { Divider } from 'semantic-ui-react'
+import "./popups.css";
 
 function Profile({ user, update_profile, update_avatar, load_user }) {
     const [formData, setFormData] = useState({
@@ -22,7 +22,6 @@ function Profile({ user, update_profile, update_avatar, load_user }) {
             setProfileEdit(false);
         } else {
             setProfileEdit(true);
-
         }
     };
 
@@ -41,7 +40,6 @@ function Profile({ user, update_profile, update_avatar, load_user }) {
         }
     };
 
-
     const handleAvatarChange = e => setAvatar(e.target.files[0]);
 
     const handleAvatarSubmit = async (e) => {
@@ -59,7 +57,6 @@ function Profile({ user, update_profile, update_avatar, load_user }) {
         }
     };
 
-
     useEffect(() => {
         if (user) {
             setFormData({
@@ -70,23 +67,22 @@ function Profile({ user, update_profile, update_avatar, load_user }) {
         }
     }, [user]);
 
-
     return (
-        <div className='flex flex-col items-center justify-center relative'>
-            <div className='absolute top-0 right-0'>
+        <div className='profileWrapper'>
+            <div className='profileSettingBtn'>
                 <Link onClick={toggleEditProfile}>
                     <Icon name='setting' size='large' />
                 </Link>
             </div>
 
-            <div className='flex flex-col items-center'>
+            <div className='profileAvatarArea'>
                 {user.profile.avatar === null ? (
-                    <i className="user circle icon !text-[40px] !mt-2 !-mb-2"></i>
+                    <i className="user circle icon" style={{ fontSize: '40px', marginTop: '0.5rem', marginBottom: '-0.5rem' }}></i>
                 ) : (
-                    <img src={user.profile.avatar} className="rounded-full w-32 h-32 object-cover" alt="avatar" />
+                    <img src={user.profile.avatar} className="profileAvatar" alt="avatar" />
                 )}
             </div>
-            <div className='flex flex-row justify-center items-center w-full font-black text-lg mb-4'>
+            <div className='profileName'>
                 {profileEdit ? (
                     <span>Edit Profile</span>
                 ) : (
@@ -95,47 +91,43 @@ function Profile({ user, update_profile, update_avatar, load_user }) {
             </div>
 
             {profileEdit ? (
-                <div className='flex flex-col justify-evenly bg-gray-200 rounded-md p-3'>
+                <div className='profileEditCard'>
                     <div>
                         <Form onSubmit={handleProfileSubmit}>
                             <FormField>
                                 <label htmlFor="phone_number">Phone:</label>
                                 <input
-                                    className="h-[2.5rem]"
+                                    className="profileInput"
                                     type="text"
                                     name="phone_number"
                                     value={phone_number}
                                     onChange={handleProfileChange}
                                 />
                             </FormField>
-                            <FormField className='!-mt-2'>
+                            <FormField className='profileFieldSpacing'>
                                 <label htmlFor="website">Website:</label>
                                 <input
-                                    className="h-[2.5rem]"
+                                    className="profileInput"
                                     type="text"
                                     name="website"
                                     value={website}
                                     onChange={handleProfileChange}
-
                                 />
                             </FormField>
-                            <FormField className='!-mt-2'>
+                            <FormField className='profileFieldSpacing'>
                                 <label htmlFor="trec">TREC ID:</label>
                                 <input
-                                    className="h-[2.5rem]"
+                                    className="profileInput"
                                     type="text"
                                     name="trec"
                                     value={trec}
                                     onChange={handleProfileChange}
-
                                 />
                             </FormField>
-                            <div className='flex justify-center mt-2'>
+                            <div className='profileSubmitRow'>
                                 <Button color="green" type="submit" size='tiny'>
                                     {isLoading ? (
-                                        <>
-                                            <Loader active inline inverted size='mini' />
-                                        </>
+                                        <Loader active inline inverted size='mini' />
                                     ) : (
                                         <span>SAVE PROFILE UPDATES</span>
                                     )}
@@ -145,27 +137,24 @@ function Profile({ user, update_profile, update_avatar, load_user }) {
                     </div>
                     <Divider />
                     <div>
-                        <Form onSubmit={handleAvatarSubmit} className='flex flex-col items-center justify-center'>
+                        <Form onSubmit={handleAvatarSubmit} className='profileAvatarForm'>
                             <FormField>
                                 <label className="label" htmlFor="avatar">Profile Picture:</label>
                                 <input
-                                    className="rounded-lg"
+                                    style={{ borderRadius: '0.5rem' }}
                                     type="file"
                                     name="avatar"
                                     accept="image/*"
                                     onChange={handleAvatarChange}
                                 />
                             </FormField>
-                            <div className='flex justify-center'>
+                            <div className='profileSubmitRow'>
                                 <Button color="green" type="submit" size='tiny'>
                                     {isLoading ? (
-                                        <>
-                                            <Loader active inline inverted size='mini' />
-                                        </>
+                                        <Loader active inline inverted size='mini' />
                                     ) : (
                                         <span>UPLOAD</span>
                                     )}
-
                                 </Button>
                             </div>
                         </Form>
@@ -179,7 +168,6 @@ function Profile({ user, update_profile, update_avatar, load_user }) {
                     <p><b>TREC ID:</b> {user.profile.trec}</p>
                 </div>
             )}
-
         </div>
     )
 }

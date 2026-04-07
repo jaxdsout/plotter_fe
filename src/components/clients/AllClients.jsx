@@ -6,6 +6,7 @@ import DealDetail from "../deals/DealDetail";
 import ListDetail from "../lists/ListDetail";
 import ClientDetail from "./ClientDetail";
 import DeleteClient from "./DeleteClient";
+import "./clients.css";
 
 function AllClients({ clients, isListMode, isDealMode, reset_list_mode, reset_edit_list, reset_deal_mode, isLoaded }) {
     const [showClientDetail, setShowClientDetail] = useState(null);
@@ -37,7 +38,6 @@ function AllClients({ clients, isListMode, isDealMode, reset_list_mode, reset_ed
         setClientTab(tab);
     };
 
-
     const handleOpenListModal = (list) => {
         setSelectedList(list.id);
         setShowListModal(true);
@@ -49,7 +49,6 @@ function AllClients({ clients, isListMode, isDealMode, reset_list_mode, reset_ed
         reset_list_mode();
     };
 
-
     const handleOpenDealModal = (deal) => {
         setSelectedDeal(deal.id);
         setShowDealModal(true);
@@ -59,7 +58,6 @@ function AllClients({ clients, isListMode, isDealMode, reset_list_mode, reset_ed
         setShowDealModal(false);
         setSelectedDeal(null);
     };
-
 
     const handleCancelEdit = async () => {
         reset_list_mode();
@@ -79,49 +77,47 @@ function AllClients({ clients, isListMode, isDealMode, reset_list_mode, reset_ed
     };
 
     return (
-        <div className="w-full overflow-y-auto min-h-[44rem]">
-            <div className="flex flex-col items-center overflow-y-auto min-h-[24rem] max-h-full text-left mt-3 mb-10 snap-start">
-                {sortedClients.length > 0 ? (
-                    <table className="w-11/12">
-                        <thead className="text-white bg-[#1f2124] text-xs text-center">
+        <div className="clientsPage">
+            <div className="clientsList">
+                {!isLoaded ? (
+                    <Loader inverted active />
+                ) : sortedClients.length > 0 ? (
+                    <table className="clientsTable">
+                        <thead className="clientsThead">
                             <tr>
-                                <th className="p-2 rounded-md">Client</th>
+                                <th className="clientsThFirst">Client</th>
                             </tr>
                         </thead>
                         <tbody>
                             {sortedClients.map((client) => (
                                 <tr
                                     key={client.id}
-                                    className="font-bold text-black hover:text-black hover:bg-gray-500 transition odd:bg-none even:bg-gray-200 text-center cursor-pointer"
+                                    className="clientsRow"
                                     onClick={() => handleOpenModal(client.id)}
                                 >
-                                    <td className="p-4 hover:text-[#5F85DB]">{client.first_name} {client.last_name}</td>
+                                    <td className="clientsTd">{client.first_name} {client.last_name}</td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
                 ) : (
-                    <>
-                        <div className='flex flex-col items-center text-white justify-center'>
-                            <Loader inverted active />
-                        </div>
-                    </>
+                    <p>No clients added yet.</p>
                 )}
             </div>
 
             {sortedClients.map(client => (
                 <>
                     {showClientDetail === client.id && (
-                        <Modal className='!w-11/12 sm:!w-[500px]' open={showModal} close onClose={handleCloseModal}>
+                        <Modal className='modalSm' open={showModal} close onClose={handleCloseModal}>
                             <Modal.Header>Client Details</Modal.Header>
                             <Modal.Content>
-                                <div className="flex pt-1 justify-between">
-                                    <div>
-                                        <Button color="blue" onClick={() => handleTabChange("info")} className="!bg-[#90B8F8] hover:!bg-[#5F85DB] !font-extrabold drop-shadow-sm">INFO</Button>
-                                        <Button color="blue" onClick={() => handleTabChange("lists")} className="!bg-[#90B8F8] hover:!bg-[#5F85DB] !font-extrabold drop-shadow-sm">LISTS</Button>
-                                        <Button color="blue" onClick={() => handleTabChange("deals")} className="!bg-[#90B8F8] hover:!bg-[#5F85DB] !font-extrabold drop-shadow-sm">DEALS</Button>
+                                <div className="clientsModalTabBar">
+                                    <div className="clientsModalTabs">
+                                        <Button onClick={() => handleTabChange("info")} className="button">INFO</Button>
+                                        <Button onClick={() => handleTabChange("lists")} className="button">LISTS</Button>
+                                        <Button onClick={() => handleTabChange("deals")} className="button">DEALS</Button>
                                     </div>
-                                    <div className="text-center">
+                                    <div>
                                         <DeleteClient client={client} handleCloseModal={handleCloseModal} />
                                     </div>
                                 </div>
@@ -130,54 +126,44 @@ function AllClients({ clients, isListMode, isDealMode, reset_list_mode, reset_ed
                                     {clientTab === "info" && (
                                         <ClientDetail client={client} />
                                     )}
-
                                     {clientTab === "lists" && (
-                                        <div className="overflow-y-auto flex justify-center min-h-96">
+                                        <div className="clientsTabContent">
                                             {client.lists ? (
                                                 <ul>
                                                     {client.lists.map(list => (
-                                                        <li className="mt-2" key={list.id}>
-                                                            <Button onClick={() => handleOpenListModal(list)}>
+                                                        <li className="clientsTabItem" key={list.id}>
+                                                            <Button className="clientsTabItemBtn" onClick={() => handleOpenListModal(list)}>
                                                                 {formatDate(list.date)}
                                                             </Button>
                                                         </li>
                                                     ))}
                                                 </ul>
                                             ) : (
-                                                <>
-                                                    <Dimmer active>
-                                                        <Loader />
-                                                    </Dimmer>
-                                                </>
+                                                <Dimmer active><Loader /></Dimmer>
                                             )}
                                         </div>
                                     )}
                                     {clientTab === "deals" && (
-                                        <div className="overflow-y-auto flex justify-center min-h-96">
+                                        <div className="clientsTabContent">
                                             {client.deals ? (
                                                 <ul>
                                                     {client.deals.map(deal => (
-                                                        <li className="mt-2" key={deal.id}>
-                                                            <Button
-                                                                onClick={() => handleOpenDealModal(deal)}>
+                                                        <li className="clientsTabItem" key={deal.id}>
+                                                            <Button className="clientsTabItemBtn" onClick={() => handleOpenDealModal(deal)}>
                                                                 {deal.prop_name} {deal.move_date}
                                                             </Button>
                                                         </li>
                                                     ))}
                                                 </ul>
                                             ) : (
-                                                <>
-                                                    <Dimmer active>
-                                                        <Loader />
-                                                    </Dimmer>
-                                                </>
+                                                <Dimmer active><Loader /></Dimmer>
                                             )}
                                         </div>
                                     )}
                                 </div>
                             </Modal.Content>
-                            <Modal.Actions className="flex justify-end">
-                                <Button className="drop-shadow-sm" onClick={handleCloseModal}>CLOSE</Button>
+                            <Modal.Actions className="modalActionsRight">
+                                <Button className="button" onClick={handleCloseModal}>CLOSE</Button>
                             </Modal.Actions>
                         </Modal>
                     )}
@@ -185,32 +171,32 @@ function AllClients({ clients, isListMode, isDealMode, reset_list_mode, reset_ed
             ))}
 
             {showListModal && selectedList && (
-                <Modal className="!w-11/12 sm:!w-[500px]" open={showListModal} onClose={handleCloseListModal}>
+                <Modal className="modalSm" open={showListModal} onClose={handleCloseListModal}>
                     <Modal.Header>List Details</Modal.Header>
                     <Modal.Content>
                         <ListDetail listID={selectedList} handleCloseModal={handleCloseListModal} />
                     </Modal.Content>
-                    <Modal.Actions className="flex justify-end">
+                    <Modal.Actions className="modalActionsRight">
                         {isListMode ? (
-                            <Button onClick={handleCancelEdit}>CANCEL</Button>
+                            <Button className="button" onClick={handleCancelEdit}>CANCEL</Button>
                         ) : (
-                            <Button onClick={handleCloseListModal}>CLOSE</Button>
+                            <Button className="button" onClick={handleCloseListModal}>CLOSE</Button>
                         )}
                     </Modal.Actions>
                 </Modal>
             )}
 
             {showDealModal && selectedDeal && (
-                <Modal className="!w-11/12 sm:!w-[500px]" open={showDealModal} onClose={handleCloseDealModal}>
+                <Modal className="modalSm" open={showDealModal} onClose={handleCloseDealModal}>
                     <Modal.Header>Deal Details</Modal.Header>
                     <Modal.Content>
                         <DealDetail dealID={selectedDeal} handleCloseModal={handleCloseDealModal} />
                     </Modal.Content>
-                    <Modal.Actions className="flex justify-end">
+                    <Modal.Actions className="modalActionsRight">
                         {isDealMode ? (
-                            <Button onClick={handleCancelEdit}>CANCEL</Button>
+                            <Button className="button" onClick={handleCancelEdit}>CANCEL</Button>
                         ) : (
-                            <Button onClick={handleCloseDealModal}>CLOSE</Button>
+                            <Button className="button" onClick={handleCloseDealModal}>CLOSE</Button>
                         )}
                     </Modal.Actions>
                 </Modal>

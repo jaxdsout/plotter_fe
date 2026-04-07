@@ -73,12 +73,40 @@ body {
 
 .formField input {
   color: white !important;
-  background-color: #1414149e !important;
-  border: #0e0e0e;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 @media screen and (min-width: 550px) {
   .subContainer {
     flex-direction: row;
   }
+}
+
+/* Modal width overrides */
+.modalSm {
+    width: 91.666% !important;
+    max-width: 500px !important;
+}
+
+.modalLg {
+    width: 91.666% !important;
+    max-width: 800px !important;
+}
+
+.modalActionsRight {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Utility */
+.flexCenter {
+    display: flex;
+    justify-content: center;
+}
+
+.deleteConfirmPopup {
+    color: #b91c1c !important;
+    font-weight: 900 !important;
+    text-align: center;
 }

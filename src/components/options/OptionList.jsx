@@ -2,32 +2,32 @@ import { Reorder } from "framer-motion";
 import { connect } from "react-redux";
 import { set_option_order } from "../../store/actions/listmaker";
 import OptionDetail from "./OptionDetail";
+import "./options.css";
 
 function OptionList({ options, isReorderMode, set_option_order }) {
 
-
     return (
-        <div className="overflow-y-auto mb-4">
+        <div className="optionListWrapper">
             {options?.length > 0 ? (
                 isReorderMode ? (
-                    <Reorder.Group values={options} onReorder={set_option_order} className="bg-[#dbdbdb] rounded-xl p-6 drop-shadow-md">
+                    <Reorder.Group values={options} onReorder={set_option_order} className="optionListGroup">
                         {options.map((option) => (
-                            <Reorder.Item key={option.id} value={option} className="p-1 hover:bg-white active:bg-accent active:drop-shadow-lg rounded-lg">
+                            <Reorder.Item key={option.id} value={option} className="optionListItem">
                                 <OptionDetail option={option} />
                             </Reorder.Item>
                         ))}
                     </Reorder.Group>
                 ) : (
-                    <div className="overflow-y-auto bg-[#dbdbdb] rounded-xl p-6 drop-shadow-md">
+                    <div className="optionListGroup">
                         {options.map((option) => (
-                            <div key={option.id} className="p-1">
+                            <div key={option.id} className="optionListItem">
                                 <OptionDetail option={option} />
                             </div>
                         ))}
                     </div>
                 )
             ) : (
-                <div className="container text-center">
+                <div className="optionListEmpty">
                     <p>No options added yet.</p>
                 </div>
             )}

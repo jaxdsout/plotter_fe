@@ -110,6 +110,30 @@
     background-color: #232425;
 }
 
+.completedTaskItem {
+    background-color: #3a3a3a;
+    border-radius: 0.375rem;
+    padding: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.completedTaskRow {
+    margin-bottom: 0;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    list-style: none;
+}
+
+.tasksDescriptionDone {
+    pointer-events: none;
+    color: #d1d5db !important;
+    width: 250px !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
 .completedTasks {
     display: flex;
     flex-direction: column;
@@ -130,5 +154,109 @@
 
     .dashColumn {
         width: 66.666667%;
+    }
+}
+
+
+/*          UPCOMING COMPONENT          */
+
+.upcomingContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+}
+
+.upcomingCol {
+    padding: 1.25rem;
+    width: 100%;
+}
+
+.upcomingTitle {
+    text-align: center;
+    color: #1f2124;
+}
+
+.upcomingTableWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    text-align: left;
+    margin-top: 0.75rem;
+    margin-bottom: 2.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+}
+
+.upcomingTable {
+    width: 100%;
+}
+
+.upcomingThead {
+    color: white;
+    background-color: #1f2124;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.upcomingThFirst {
+    padding: 0.5rem;
+    border-radius: 0.375rem 0 0 0.375rem;
+}
+
+.upcomingThLast {
+    padding: 0.5rem;
+    border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.upcomingRow {
+    font-weight: bold;
+    color: #1f2124;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.upcomingRow:nth-child(odd) {
+    background-color: white;
+}
+
+.upcomingRow:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.upcomingRow:hover {
+    color: black;
+    background-color: #f3f4f6;
+}
+
+.upcomingTd {
+    padding: 0.5rem;
+}
+
+.upcomingTdSm {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+}
+
+.upcomingEmpty {
+    font-size: 0.75rem;
+    text-align: center;
+    padding: 0.5rem;
+    background-color: #1f2124;
+    color: white;
+    border-radius: 0.375rem;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .upcomingContainer {
+        flex-direction: row;
+    }
+    .upcomingCol {
+        width: 50%;
+    }
+    .upcomingTdSm {
+        font-size: 1rem;
     }
 }

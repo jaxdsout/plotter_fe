@@ -75,6 +75,33 @@
     display: none;
 }
 
+/* Client view footer */
+.clientFooter {
+    background-color: #262626;
+    text-align: center;
+    padding: 1.25rem;
+    position: sticky;
+    bottom: 0;
+}
+
+.clientFooterLogo {
+    padding: 1.25rem;
+    font-size: 3.75rem;
+    color: #e1e1e1;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.clientFooterLogo:hover {
+    color: #9ca3af;
+}
+
+.clientFooterText {
+    color: white;
+    font-size: 0.875rem;
+    margin-bottom: 1.25rem;
+}
+
 .authFooter {
     display: flex;
     flex-direction: column;

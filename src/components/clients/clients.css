@@ -1,0 +1,155 @@
+/*          CLIENTS COMPONENTS          */
+
+.clientsPage {
+    width: 100%;
+    overflow-y: auto;
+    min-height: 44rem;
+}
+
+.clientsList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    min-height: 24rem;
+    max-height: 100%;
+    text-align: left;
+    margin-top: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.clientsTable {
+    width: 91.666%;
+}
+
+.clientsThead {
+    color: white;
+    background-color: #1f2124;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.clientsTh {
+    padding: 0.5rem;
+}
+
+.clientsThFirst {
+    padding: 0.5rem;
+    border-radius: 0.375rem 0 0 0.375rem;
+}
+
+.clientsThLast {
+    padding: 0.5rem;
+    border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.clientsRow {
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.clientsRow:nth-child(odd) {
+    background-color: white;
+}
+
+.clientsRow:nth-child(even) {
+    background-color: #f3f4f6;
+}
+
+.clientsRow:hover {
+    color: white;
+    background-color: #6b7280;
+}
+
+.clientsTd {
+    padding: 0.5rem;
+}
+
+.clientsAddRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.clientsModalTabBar {
+    display: flex;
+    padding-top: 0.25rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clientsModalTabs {
+    display: flex;
+    gap: 0.25rem;
+}
+
+/* ClientDetail */
+.clientDetailCard {
+    background-color: #e5e7eb;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    min-height: 24rem;
+}
+
+.clientDetailField {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.clientDetailFieldHint {
+    position: absolute;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    left: 9rem;
+    bottom: 0.05rem;
+}
+
+/* Tab item buttons — dark but standard font (no Tigeroa) */
+.clientsTabItemBtn {
+    background-color: #4c4c47 !important;
+    color: white !important;
+    font-family: "Montserrat", sans-serif !important;
+    letter-spacing: normal !important;
+    font-weight: 600 !important;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.clientsTabItemBtn:hover {
+    background-color: black !important;
+    color: white !important;
+}
+
+/* Remove excess margin from buttons inside the tab bar */
+.clientsModalTabs .button {
+    margin: 0;
+}
+
+.clientsTabContent {
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    min-height: 24rem;
+}
+
+.clientsTabItem {
+    margin-top: 0.5rem;
+    list-style: none;
+}
+
+.clientsMsgWrapper {
+    margin-bottom: 0.75rem;
+    margin-top: 0.75rem;
+    padding: 0.25rem;
+}
+
+.deleteClientPopup {
+    color: #b91c1c !important;
+    font-weight: 900 !important;
+}
