@@ -50,7 +50,10 @@ function NewList({ new_option, reset_reorder_mode, property, list, load_list, lo
 
     const handleEditList = async () => {
         await reset_send_mode();
-        set_list_mode()
+        if (list?.id) {
+            await load_list(list.id);
+        }
+        set_list_mode();
     }
 
     const handleCopy = () => {

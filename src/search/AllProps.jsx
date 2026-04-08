@@ -38,8 +38,10 @@ function AllProps ({ property, properties, reset_commission, polygonProps }) {
     useEffect(() => {
         if (polygonProps?.length > 0) {
             setPassedProps(polygonProps)
-        } 
-    }, [polygonProps])
+        } else {
+            setPassedProps(properties)
+        }
+    }, [polygonProps, properties])
 
     return (
         <div className="flex flex-col w-full max-h-[49rem]">
